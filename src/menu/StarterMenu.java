@@ -4,40 +4,37 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class StarterMenu {
+import main.Game;
+
+public class StarterMenu extends JPanel {
+	
+	private ImageIcon background;
+	private JLabel label1, label2;
+	private JPanel panel1, panel2;
+	private Border border;
 	
 	public StarterMenu(){
-		ImageIcon icon= new ImageIcon("res/marioicon.png");
-		ImageIcon back= new ImageIcon("res/mario_background.png");
+		this.setLayout(null);
 		
-		Border border = BorderFactory.createLineBorder(Color.black, 50);
-		JLabel label = new JLabel();
-		label.setIcon(back);
-		JLabel label2 = new JLabel();
-		label2.setIcon(back);
+		background = new ImageIcon("res/mario_background.png");
 		
-		JPanel panel1 = new JPanel();
+		border = BorderFactory.createLineBorder(Color.black, 50);
+		label1 = new JLabel();
+		label1.setIcon(background);
+		label2 = new JLabel();
+		label2.setIcon(background);
+		
+		panel1 = new JPanel();
 		panel1.setBackground(Color.BLUE);
 		panel1.setBounds(0,0,500,500);
 		
-		JPanel panel2 = new JPanel();
+		panel2 = new JPanel();
 		panel2.setBackground(Color.GREEN);
 		panel2.setBounds(250,0,250,250);
 		
-		JFrame frame = new JFrame();
-		Container container = frame.getContentPane();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1600,800);
-		
-		frame.setLayout(null);
-		frame.setLayout(new FlowLayout());
-		frame.setIconImage(icon.getImage());
-		container.setBackground(Color.RED);
-		frame.add(label);
-		frame.add(label2);
-	
-		
-		frame.setVisible(true);
-		frame.setResizable(false);
+		panel1.add(label1);
+		panel2.add(label2);
+		this.add(panel1);
+		this.add(panel2);
 	}
 }

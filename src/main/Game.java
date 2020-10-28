@@ -17,6 +17,7 @@ public class Game extends JFrame{
 		this.setTitle("Mario But Scuffed");
 		this.setResizable(false);
 		this.setSize(screenDimension);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
 		container = this.getContentPane();
