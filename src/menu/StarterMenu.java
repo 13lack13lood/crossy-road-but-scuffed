@@ -1,13 +1,15 @@
 package menu;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import main.Game;
 
-public class StarterMenu extends JPanel {
-	
+public class StarterMenu extends JPanel implements ActionListener{
 	private ImageIcon background;
 	private JLabel label1, label2;
 	private JPanel panel1, panel2;
@@ -36,5 +38,10 @@ public class StarterMenu extends JPanel {
 		panel2.add(label2);
 		this.add(panel1);
 		this.add(panel2);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
