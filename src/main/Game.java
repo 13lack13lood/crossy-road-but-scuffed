@@ -19,7 +19,6 @@ public class Game extends JFrame{
 	public static CardLayout cardLayout;
 	public static Container container;
 	
-	private JFrame frame;
 	private Dimension screenDimension;
 	private ImageIcon icon;
 	
@@ -27,18 +26,17 @@ public class Game extends JFrame{
 	private InstructionMenu instructionMenu;
 	
 	public Game() {
-		frame = new JFrame();
 		screenDimension = new Dimension(WIDTH, HEIGHT);
 		
 		cardLayout = new CardLayout();
-		container = frame.getContentPane();
+		container = getContentPane();
 		container.setLayout(cardLayout);
 		
 		this.setSize(screenDimension);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setTitle("Mario But Scuffed");
-		this.setVisible(true);
+
 
 		icon = new ImageIcon("res/marioicon.png");
 		this.setIconImage(icon.getImage());
@@ -48,5 +46,8 @@ public class Game extends JFrame{
 		
 		container.add("Starter Menu", starterMenu);
 		container.add("Instruction Menu", instructionMenu);
+	
+		this.setVisible(true);
+		
 	}
 }

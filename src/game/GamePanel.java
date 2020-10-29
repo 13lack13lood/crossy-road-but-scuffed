@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 
+	public GamePanel() {
+		
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub

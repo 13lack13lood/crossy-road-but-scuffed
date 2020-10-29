@@ -10,38 +10,18 @@ import javax.swing.border.Border;
 import main.Game;
 
 public class StarterMenu extends JPanel implements ActionListener{
-	private ImageIcon background;
-	private JLabel label1, label2;
-	private JPanel panel1, panel2;
-	private Border border;
+	private JButton  goGame;    // variables: button
 	
-	public StarterMenu(){
-		this.setLayout(null);
-		
-		background = new ImageIcon("res/mario_background.png");
-		
-		border = BorderFactory.createLineBorder(Color.black, 50);
-		label1 = new JLabel();
-		label1.setIcon(background);
-		label2 = new JLabel();
-		label2.setIcon(background);
-		
-		panel1 = new JPanel();
-		panel1.setBackground(Color.BLUE);
-		panel1.setBounds(0,0,500,500);
-		
-		panel2 = new JPanel();
-		panel2.setBackground(Color.GREEN);
-		panel2.setBounds(250,0,250,250);
-		
-		panel1.add(label1);
-		panel2.add(label2);
-		this.add(panel1);
-		this.add(panel2);
-	}
+	public StarterMenu(){  // constructor
+           goGame=new JButton("   Go to game panel   ");
+           goGame.addActionListener(this);
+           this.setLayout(new FlowLayout());
+           this.add(goGame);     // add the button
+		   this.setBackground(Color.GREEN);
+	}	   
+    public void actionPerformed(ActionEvent e) {
+	      if(e.getSource()==goGame)
+			      Game.cardLayout.next(Game.container);
+    }
 
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

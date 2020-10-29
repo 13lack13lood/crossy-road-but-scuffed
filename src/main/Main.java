@@ -1,7 +1,5 @@
 package main;
 
-import java.awt.Container;
-
 import menu.StarterMenu;
 
 public class Main {
