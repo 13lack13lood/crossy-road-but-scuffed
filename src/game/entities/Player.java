@@ -2,6 +2,7 @@ package game.entities;
 
 import javax.swing.ImageIcon;
 
+import main.Frame;
 import tools.HitBox;
 
 public class Player extends Entity {
@@ -9,15 +10,11 @@ public class Player extends Entity {
 	private HitBox hitBox;
 	private int y;
 	private int dy;
-	private int x; //remove later
-	private int dx; //remove later
-	
+
 	public Player(ImageIcon playerIcon, int y, int dy) {
 		this.playerIcon = playerIcon;
 		this.y = y;
 		this.dy = y;
-		x = 0; //remove later
-		dx = 72; //remove later
 	}
 
 	public ImageIcon getPlayerIcon() {
@@ -31,25 +28,12 @@ public class Player extends Entity {
 	public int getY() {
 		return y;
 	}
-
-	public int getDy() {
-		return dy;
-	}
-
-	public int getX() { //remove later
-		return x;
-	}
-
-	public int getDx() { //remove later
-		return dx;
+	
+	public void moveUp() {
+		y += (y <= 0) ? 0 : dy;
 	}
 	
-	public void setY(int y) {
-		this.y = y;
-	}
-
-
-	public void setX(int x) {
-		this.x = x;
+	public void moveDown() { //change later
+		y += (y >= 440) ? 0 : dy;
 	}
 }

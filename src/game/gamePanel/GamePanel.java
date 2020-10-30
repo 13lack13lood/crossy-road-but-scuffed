@@ -1,7 +1,6 @@
 package game.gamePanel;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,13 +18,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	
 	private Timer timer;
 	private Player player;
+	private int x, y;
 	
 	public GamePanel() {
 		this.setBackground(Color.red);
 		
-		player = new Player(new ImageIcon("res/icon.png"), 288, 72);
+		player = new Player(new ImageIcon("res/icon.png"), 300, 1);
 		
-		timer = new Timer(1000, this);
+		x = 0;
+		y = 0;
+		
+		timer = new Timer(0, this);
 		timer.start();
 	}
 
@@ -45,14 +48,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == timer) {
-			player.setX(player.getX() + player.getDx());
+//			y += 1;
 			repaint();
 		}
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(player.getPlayerIcon().getImage(),player.getX(), player.getY(), 72, 72, null);
+		for(int j = 0; j < 10; j++)
+			for(int i = 0; i < 10; i++)
+				g.drawImage(player.getPlayerIcon().getImage(),x+64*i, y+60*j, 64, 64, null);
+
 	}
 	
 }
