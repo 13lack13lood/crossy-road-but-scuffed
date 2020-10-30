@@ -1,5 +1,5 @@
 package game.entities;
 
-public class Vehicle {
+public class Vehicle extends Entity {
 
 }

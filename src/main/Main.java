@@ -1,5 +1,7 @@
 package main;
 
+import java.awt.BorderLayout;
+
 import game.gamePanel.GamePanel;
 
 public class Main {
@@ -9,7 +11,7 @@ public class Main {
 		
 		GamePanel gamePanel = new GamePanel();
 		
-		frame.container.add(gamePanel);
+		frame.container.add(gamePanel, BorderLayout.CENTER);
 	}
 	
 }
