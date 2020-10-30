@@ -8,8 +8,8 @@ public class Frame extends JFrame {
 
 	public static final int WIDTH = 512, HEIGHT = 512;
 	
-	public CardLayout layout;
-	public Container container;
+	public static CardLayout layout;
+	public static Container container;
 	private ImageIcon icon;
 	
 	public Frame() {
