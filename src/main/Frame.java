@@ -18,14 +18,12 @@ public class Frame extends JFrame {
 		container.setLayout(layout);
 		
 		icon = new ImageIcon("res/icon.png");
-		setIconImage(icon.getImage());
+		this.setIconImage(icon.getImage());
 		
-		setTitle("Crossy Road");
-		setSize(WIDTH, HEIGHT);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+		this.setTitle("Crossy Road But Scuffed");
+		this.setSize(WIDTH, HEIGHT);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 }
