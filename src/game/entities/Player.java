@@ -30,10 +30,10 @@ public class Player extends Entity {
 	}
 	
 	public void moveUp() {
-		y += (y <= 0) ? 0 : dy;
+		y -= (y <= 0) ? 0 : dy;
 	}
 	
 	public void moveDown() { //change later
-		y += (y >= 440) ? 0 : dy;
+		y += (y >= Frame.HEIGHT - Frame.SQUARE) ? 0 : dy;
 	}
 }

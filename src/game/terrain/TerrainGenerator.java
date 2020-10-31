@@ -2,11 +2,11 @@ package game.terrain;
 
 import java.util.ArrayList;
 
-public class Grid {
+public class TerrainGenerator {
 	
 	private ArrayList<Terrain> terrains;
 	
-	public Grid(int rows, int columns) {
+	public TerrainGenerator(int rows, int columns) {
 		
 	}
 }
