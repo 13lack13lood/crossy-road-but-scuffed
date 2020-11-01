@@ -13,29 +13,25 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Player;
+import main.Frame;
+import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	
 	private Timer timer;
 	private Player player;
-	private int x, y;
 	
-	public GamePanel() {
-		this.setBackground(Color.red);
+	public GamePanel(Player player) {
+		this.setBackground(Color.white);
+		this.player = player;
 		
-		player = new Player(new ImageIcon("res/icon.png"), 300, 1);
+		addKeyListener(this);
 		
-		x = 0;
-		y = 0;
-		
-		timer = new Timer(0, this);
+		timer = new Timer(5, this);
 		timer.start();
 	}
 
-	public void keyTyped(KeyEvent e) {
-
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	public void keyPressed(KeyEvent e) {
 
@@ -43,22 +39,38 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 
 	public void keyReleased(KeyEvent e) {
 
+		if(e.getKeyCode() == 87) {
+			player.moveUp();
+			player.setIsMoving(true);
+		} 
 		
+		if(e.getKeyCode() == 83) {
+			player.moveDown();
+			player.setIsMoving(true);
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == timer) {
-//			y += 1;
+			//move player
+			if(player.playerDoneMoving())
+				player.setIsMoving(false);
+			
+			if(player.isMoving())
+				if(player.getMoveDirection() == Tools.UP) 
+					player.moveUp();
+				else if(player.getMoveDirection() == Tools.DOWN)
+					player.moveDown();
+			
+			
+			
 			repaint();
 		}
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		for(int j = 0; j < 10; j++)
-			for(int i = 0; i < 10; i++)
-				g.drawImage(player.getPlayerIcon().getImage(),x+64*i, y+60*j, 64, 64, null);
-
+		player.draw(g);
 	}
 	
 }

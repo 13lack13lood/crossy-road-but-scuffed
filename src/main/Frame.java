@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Frame extends JFrame {
 
-	public static final int WIDTH = 512, HEIGHT = 512;
+	public static final int WIDTH = 512, HEIGHT = 512, SQUARE = 64;
 	
 	public static CardLayout layout;
 	public static Container container;
@@ -21,8 +21,7 @@ public class Frame extends JFrame {
 		this.setIconImage(icon.getImage());
 		
 		this.setTitle("Crossy Road But Scuffed");
-		this.setSize(WIDTH, HEIGHT);
-		this.setVisible(true);
+		this.setSize(WIDTH + 14, HEIGHT + 30 + 7);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
