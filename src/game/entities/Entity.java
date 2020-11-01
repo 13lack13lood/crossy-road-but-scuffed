@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
+import main.Frame;
 import tools.HitBox;
 
 public class Entity {
@@ -24,7 +25,7 @@ public class Entity {
 	}
 	
 	public void draw(Graphics g) {
-		g.drawImage(image.getImage(), x, y, null);
+		g.drawImage(image.getImage(), x, y, Frame.SQUARE, height, null);
 	}
 
 	public HitBox getHitbox() {

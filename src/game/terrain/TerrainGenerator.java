@@ -23,9 +23,5 @@ public class TerrainGenerator {
 		for(int i = 0; i < columns / 2; i++) {
 			list.add(new Grass(Tools.GRASS, i));
 		}
-		
-		for(int i = columns / 2; i < columns; i++) {
-			
-		}
 	}
 }

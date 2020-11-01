@@ -18,7 +18,7 @@ public class Main {
 		
 		StartMenu startMenu = new StartMenu(new ImageIcon("res/chicken.png"),new Font("Comic Sans MS",Font.BOLD,20));
 		
-		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE, 8);
+		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
 		GamePanel gamePanel = new GamePanel(player);
 
 		
