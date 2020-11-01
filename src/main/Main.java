@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 
 import game.entities.Player;
 import game.gamePanel.GamePanel;
+import game.terrain.TerrainGenerator;
 import menus.StartMenu;
 
 public class Main {
@@ -19,7 +20,8 @@ public class Main {
 		StartMenu startMenu = new StartMenu(new ImageIcon("res/chicken.png"),new Font("Comic Sans MS",Font.BOLD,20));
 		
 		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
-		GamePanel gamePanel = new GamePanel(player);
+		TerrainGenerator terrainGenerator = new TerrainGenerator(Frame.HEIGHT / frame.SQUARE);
+		GamePanel gamePanel = new GamePanel(player, terrainGenerator);
 
 		
 		Frame.container.add(startMenu, BorderLayout.CENTER);

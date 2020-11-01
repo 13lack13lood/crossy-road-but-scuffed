@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Player;
+import game.terrain.TerrainGenerator;
 import main.Frame;
 import tools.Tools;
 
@@ -20,10 +21,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	
 	private Timer timer;
 	private Player player;
+	private TerrainGenerator terrainGenerator;
 	
-	public GamePanel(Player player) {
+	public GamePanel(Player player, TerrainGenerator terrainGenerator) {
 		this.setBackground(Color.white);
 		this.player = player;
+		this.terrainGenerator = terrainGenerator;
 		
 		addKeyListener(this);
 		setFocusable(true);
@@ -75,6 +78,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		player.draw(g);
+		terrainGenerator.draw(g);
+		
 	}
 	
 }

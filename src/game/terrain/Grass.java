@@ -16,10 +16,10 @@ public class Grass extends Terrain {
 	private int numOfTrees;
 	private ArrayList<Integer> prevMoveSquares;
 	
-	public Grass(Color color, int pos, ArrayList<Integer> prevMoveSquares) {
+	public Grass(Color color, int pos, ArrayList<Integer> prevMoveSquares, int numOfTrees) {
 		super(color, pos);	
 		this.prevMoveSquares = prevMoveSquares;
-		numOfTrees = Tools.generateRandomNumber(0, Frame.HEIGHT / Frame.SQUARE);
+		this.numOfTrees = numOfTrees;
 	}
 	
 	public void draw(Graphics g) {
