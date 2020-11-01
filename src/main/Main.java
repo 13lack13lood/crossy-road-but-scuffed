@@ -20,11 +20,12 @@ public class Main {
 		
 		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE, 8);
 		GamePanel gamePanel = new GamePanel(player);
-		gamePanel.setFocusable(true);
+
 		
 		Frame.container.add(startMenu, BorderLayout.CENTER);
 		Frame.container.add(gamePanel, BorderLayout.CENTER);
-
+		
+		
 		frame.setVisible(true);
 	}
 }

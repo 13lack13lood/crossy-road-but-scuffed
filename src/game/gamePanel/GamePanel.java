@@ -26,6 +26,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		this.player = player;
 		
 		addKeyListener(this);
+		setFocusable(true);
+		this.requestFocusInWindow();
 		
 		timer = new Timer(5, this);
 		timer.start();
@@ -40,6 +42,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void keyReleased(KeyEvent e) {
 
 		if(e.getKeyCode() == 87) {
+			System.out.println("adf");
 			player.moveUp();
 			player.setIsMoving(true);
 		} 
@@ -65,6 +68,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			
 			
 			repaint();
+			requestFocusInWindow();
 		}
 	}
 	

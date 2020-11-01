@@ -38,10 +38,7 @@ public class Player extends Entity {
 		moveDirection = Tools.DOWN;
 		y += (y >= Frame.HEIGHT - Frame.SQUARE) ? 0 : dy;
 	}
-	
-	public void move() {
-		
-	}
+
 	
 	public boolean isMoving() {
 		return isMoving;
