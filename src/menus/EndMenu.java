@@ -1,5 +1,7 @@
 package menus;
 
-public class EndMenu {
+import javax.swing.JPanel;
+
+public class EndMenu extends JPanel {
 
 }

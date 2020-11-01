@@ -14,6 +14,7 @@ import javax.swing.Timer;
 
 import game.entities.Player;
 import main.Frame;
+import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	
@@ -21,12 +22,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	private Player player;
 	
 	public GamePanel(Player player) {
-		this.setBackground(new Color(181, 236, 95));
+		this.setBackground(Color.white);
 		this.player = player;
 		
 		addKeyListener(this);
 		
-		timer = new Timer(12, this);
+		timer = new Timer(5, this);
 		timer.start();
 	}
 
@@ -39,26 +40,37 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void keyReleased(KeyEvent e) {
 
 		if(e.getKeyCode() == 87) {
-			System.out.println("w");
 			player.moveUp();
+			player.setIsMoving(true);
 		} 
 		
 		if(e.getKeyCode() == 83) {
-			System.out.println("s");
 			player.moveDown();
+			player.setIsMoving(true);
 		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == timer) {
+			//move player
+			if(player.playerDoneMoving())
+				player.setIsMoving(false);
+			
+			if(player.isMoving())
+				if(player.getMoveDirection() == Tools.UP) 
+					player.moveUp();
+				else if(player.getMoveDirection() == Tools.DOWN)
+					player.moveDown();
+			
+			
+			
 			repaint();
 		}
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(player.getPlayerIcon().getImage(), Frame.SQUARE, player.getY(), Frame.SQUARE, Frame.SQUARE, null);
-
+		player.draw(g);
 	}
 	
 }

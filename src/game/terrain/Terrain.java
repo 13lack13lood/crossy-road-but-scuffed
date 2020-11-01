@@ -1,13 +1,11 @@
 package game.terrain;
-
 import java.awt.Color;
 import java.awt.Graphics;
-
-import javax.swing.JPanel;
+import java.awt.Rectangle;
 
 import main.Frame;
 
-public class Terrain extends JPanel {
+public class Terrain extends Rectangle {
 	private Color color;
 	private int width, height;
 	private int pos;
@@ -19,9 +17,8 @@ public class Terrain extends JPanel {
 		height = Frame.HEIGHT;
 	}
 	
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+	public void draw(Graphics g) {
+		g.setColor(color);
 		g.fillRect(pos * Frame.SQUARE, 0, width, height);
 	}
-	
 }

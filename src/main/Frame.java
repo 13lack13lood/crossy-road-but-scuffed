@@ -21,8 +21,7 @@ public class Frame extends JFrame {
 		this.setIconImage(icon.getImage());
 		
 		this.setTitle("Crossy Road But Scuffed");
-		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		this.setVisible(true);
+		this.setSize(WIDTH + 14, HEIGHT + 30 + 7);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
