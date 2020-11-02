@@ -28,7 +28,7 @@ public class StartMenu extends JPanel implements ActionListener{
 		this.chicken = chicken;
 		this.setBackground(new Color(105, 206, 236));
 		
-		JLabel title = new JLabel();
+		title = new JLabel();
 		title.setText("Crossy Road But Scuffed");
 		title.setLocation(20,10);
 		title.setSize(500, 100);
@@ -60,7 +60,6 @@ public class StartMenu extends JPanel implements ActionListener{
 		
 		this.setLayout(null);
 		this.setVisible(true);
-		
 		this.add(play);
 		this.add(info);
 		this.add(exit);
@@ -70,10 +69,10 @@ public class StartMenu extends JPanel implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == play) {
-			Frame.layout.next(Frame.container);
+			Frame.layout.show(Frame.container,"gamepanel");
 		}
 		else if(e.getSource() == info) {
-			System.out.println("info");
+			Frame.layout.show(Frame.container,"instructionmenu");
 		}
 		else if(e.getSource() == exit) {
 			System.exit(0);
