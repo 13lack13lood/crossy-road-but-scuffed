@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.BorderLayout;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -16,18 +15,17 @@ public class Main {
 	public static void main(String[] args) {
 		Frame frame = new Frame();
 		
-		StartMenu startMenu = new StartMenu(new ImageIcon("res/chicken.png"),new Font("Comic Sans MS",Font.BOLD,20));
-		InstructionMenu instructionMenu = new InstructionMenu();
+		StartMenu startMenu = new StartMenu(new ImageIcon("res/chicken.png"), new Font("Comic Sans MS", Font.BOLD, 20));
+		InstructionMenu instructionMenu = new InstructionMenu(new ImageIcon("res/W.png"), new ImageIcon("res/S.png"), new ImageIcon("res/D.png"), new Font("Comic Sans MS", Font.BOLD, 25));
+		
 		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
 		TerrainGenerator terrainGenerator = new TerrainGenerator(Frame.HEIGHT / Frame.SQUARE);
 		GamePanel gamePanel = new GamePanel(player, terrainGenerator);
 
+		Frame.container.add(startMenu, "startmenu");
+		Frame.container.add(instructionMenu, "instructionmenu");
+		Frame.container.add(gamePanel, "gamepanel");
 		
-		//Frame.container.add(startMenu, BorderLayout.CENTER);
-		//Frame.container.add(gamePanel, BorderLayout.CENTER);
-		Frame.container.add(startMenu,"startmenu");
-		Frame.container.add(instructionMenu,"instructionmenu");
-		Frame.container.add(gamePanel,"gamepanel");
 		frame.setVisible(true);
 	}
 }

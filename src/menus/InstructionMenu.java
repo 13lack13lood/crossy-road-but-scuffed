@@ -14,70 +14,75 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import main.Frame;
+import tools.Tools;
 
-public class InstructionMenu extends JPanel implements ActionListener{
-	JLabel title, wText, sText, dText;
-	JButton back;
-	ImageIcon W, S, D;
-	public InstructionMenu() {
+public class InstructionMenu extends JPanel implements ActionListener {
+	private JLabel title, wText, sText, dText;
+	private JButton back;
+	private ImageIcon w, s, d;
 	
+	public InstructionMenu(ImageIcon w, ImageIcon s, ImageIcon d, Font font) {
+
+		this.w = w;
+		this.s = s;
+		this.d = d;
+		
 		title = new JLabel();
 		wText = new JLabel();
 		sText = new JLabel();
 		dText = new JLabel();
-		W = new ImageIcon("res/W.png");
-		S = new ImageIcon("res/S.png");
-		D = new ImageIcon("res/D.png");
-		this.setBackground(new Color(105, 206, 236));
-		
+
+		this.setBackground(Tools.WATER);
+
 		wText.setText("Press W to move up");
 		sText.setText("Press S to move down");
 		dText.setText("Press D to move right");
-		
-		wText.setLocation(175,100);
+
+		wText.setLocation(175, 100);
 		wText.setSize(500, 100);
-		wText.setFont(new Font("Comic Sans MS",Font.BOLD,25));
-		
-		sText.setLocation(175,200);
+		wText.setFont(font);
+
+		sText.setLocation(175, 200);
 		sText.setSize(500, 100);
-		sText.setFont(new Font("Comic Sans MS",Font.BOLD,25));
-		
-		dText.setLocation(175,300);
+		sText.setFont(font);
+
+		dText.setLocation(175, 300);
 		dText.setSize(500, 100);
-		dText.setFont(new Font("Comic Sans MS",Font.BOLD,25));
-		
+		dText.setFont(font);
+
 		title.setText("Crossy Road Instructions");
-		title.setLocation(20,10);
+		title.setLocation(20, 10);
 		title.setSize(500, 100);
-		title.setFont(new Font("Comic Sans MS",Font.BOLD,38));
-		
+		title.setFont(font.deriveFont(38f));
+
 		back = new JButton();
-		back.setBounds(190,421,120,50);
+		back.setBounds(190, 421, 120, 50);
 		back.addActionListener(this);
 		back.setText("BACK");
-		back.setFont(new Font("Comic Sans MS",Font.BOLD,20));
+		back.setFont(font);
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
-		
+
 		this.add(wText);
 		this.add(sText);
 		this.add(dText);
 		this.add(back);
 		this.add(title);
 		this.setLayout(null);
-		this.setVisible(true);
 		repaint();
+		this.setVisible(true);
 	}
+
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == back) {
-			Frame.layout.show(Frame.container,"startmenu");
+		if (e.getSource() == back) {
+			Frame.layout.show(Frame.container, "startmenu");
 		}
-		
 	}
+
 	public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(W.getImage(),60 , 120, 75, 75, null);
-        g.drawImage(S.getImage(),60 , 220, 75, 75, null);
-        g.drawImage(D.getImage(),60 , 320, 75, 75, null);
+		super.paintComponent(g);
+		g.drawImage(w.getImage(), 60, 120, 75, 75, null);
+		g.drawImage(s.getImage(), 60, 220, 75, 75, null);
+		g.drawImage(d.getImage(), 60, 320, 75, 75, null);
 	}
 }
