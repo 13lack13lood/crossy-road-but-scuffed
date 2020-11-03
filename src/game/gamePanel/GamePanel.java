@@ -45,7 +45,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void keyReleased(KeyEvent e) {
 
 		if(e.getKeyCode() == 87) {
-			System.out.println("adf");
 			player.moveUp();
 			player.setIsMoving(true);
 		} 
@@ -77,8 +76,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		player.draw(g);
 		terrainGenerator.draw(g);
+		player.draw(g);
+
 		
 	}
 	

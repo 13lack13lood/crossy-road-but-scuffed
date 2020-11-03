@@ -1,6 +1,7 @@
 package tools;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Tools {
@@ -14,5 +15,15 @@ public class Tools {
 	public static int generateRandomNumber(int low, int high) {
 		Random random = new Random();
 		return random.nextInt(high + 1) + low;
+	}
+	
+	public static ArrayList<Integer> fillArrayListIncreasing(int size){
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for(int i = 0; i < size; i++) {
+			list.add(i);
+		}
+		
+		return list;
 	}
 }
