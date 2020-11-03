@@ -17,6 +17,10 @@ public class Terrain extends Rectangle {
 		height = Frame.HEIGHT;
 	}
 	
+	public int getPos() {
+		return pos;
+	}
+	
 	public void draw(Graphics g) {
 		g.setColor(color);
 		g.fillRect(pos * Frame.SQUARE, 0, width, height);

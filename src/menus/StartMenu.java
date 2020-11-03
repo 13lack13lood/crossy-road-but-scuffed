@@ -28,7 +28,7 @@ public class StartMenu extends JPanel implements ActionListener{
 		this.chicken = chicken;
 		this.setBackground(new Color(105, 206, 236));
 		
-		JLabel title = new JLabel();
+		title = new JLabel();
 		title.setText("Crossy Road But Scuffed");
 		title.setLocation(20,10);
 		title.setSize(500, 100);

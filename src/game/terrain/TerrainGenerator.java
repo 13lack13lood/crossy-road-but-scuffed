@@ -19,13 +19,20 @@ public class TerrainGenerator {
 	
 	private ArrayList<Terrain> generateFreshTerrain() {
 		ArrayList<Terrain> list = new ArrayList<Terrain>();
-		list.add(new Grass(Tools.GRASS, 0, new ArrayList<Integer>(), Frame.HEIGHT / Frame.SQUARE));
-		list.add(new Grass(Tools.GRASS, 1, new ArrayList<Integer>(), Frame.HEIGHT / Frame.SQUARE));
-		list.add(new Grass(Tools.GRASS, 2, new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6)), 2));
-		list.add(new Grass(Tools.GRASS, 2, new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6)), 2));
+		
+		for(int i = 0; i < 3; i++) {
+			list.add(new Grass(Tools.GRASS, i));
+		}
+		
+		for(int i = 3; i < Frame.HEIGHT / Frame.SQUARE; i++) {
+			list.add(new Grass(new ArrayList<Integer>(Arrays.asList(0, 7)), Tools.GRASS, i));
+		}
 		
 		return list;
 	}
+	
+	
+
 	
 	public void draw(Graphics g) {
 		for(Terrain terrain : terrains) {

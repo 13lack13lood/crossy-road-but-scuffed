@@ -9,14 +9,12 @@ import tools.HitBox;
 import tools.Tools;
 
 public class Player extends Entity {
-	private ImageIcon playerIcon;
 	private int dy;
 	private boolean isMoving;
 	private int moveDirection;
 
 	public Player(ImageIcon playerIcon, int y, int dy) {
 		super(playerIcon, new HitBox(Frame.SQUARE, y, Frame.SQUARE, Frame.SQUARE), Frame.SQUARE, Frame.SQUARE * 3, y, false);
-		this.playerIcon = playerIcon;
 		this.y = y;
 		this.dy = dy;
 	}
@@ -34,7 +32,6 @@ public class Player extends Entity {
 		moveDirection = Tools.DOWN;
 		y += (y >= Frame.HEIGHT - Frame.SQUARE) ? 0 : dy;
 	}
-
 	
 	public boolean isMoving() {
 		return isMoving;
