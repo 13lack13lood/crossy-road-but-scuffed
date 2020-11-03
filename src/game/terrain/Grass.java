@@ -7,13 +7,13 @@ import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 
+import game.entities.Entity;
 import game.entities.Tree;
 import main.Frame;
 import tools.Tools;
 
 public class Grass extends Terrain {
 	
-	private ArrayList<Tree> trees;
 	private ArrayList<Integer> prevMovingSquares;
 	
 	public Grass(Color color, int pos, ArrayList<Integer> prevMovingSquares) {
@@ -21,38 +21,33 @@ public class Grass extends Terrain {
 		
 		this.prevMovingSquares = prevMovingSquares;
 		
-		trees = new ArrayList<Tree>();
-		
 		ArrayList<Integer> treePos = generateTreePositions();
 		for(int i : treePos) {
-			trees.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
+			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
 		}
 	}
 	
 	public Grass(Color color, int pos) {
 		super(color, pos);
 		
-		trees = new ArrayList<Tree>();
-		
 		for(int i = 0; i < Frame.HEIGHT / Frame.SQUARE; i++) {
-			trees.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
+			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
 		}
 	}
 	
 	public Grass(ArrayList<Integer> treePos, Color color, int pos) {
 		super(color, pos);
-		trees = new ArrayList<Tree>();
 		
 		for(int i : treePos) {
-			trees.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
+			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
 		}
 	}
 
 	public void draw(Graphics g) {
 		super.draw(g);
 		
-		for(Tree tree : trees) {
-			tree.draw(g);
+		for(Entity e : objects) {
+			e.draw(g);
 		}
 	}
 	
@@ -88,5 +83,4 @@ public class Grass extends Terrain {
 
 		return treePositions;
 	}
-
 }

@@ -2,10 +2,13 @@ package game.terrain;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
+import game.entities.Entity;
 import main.Frame;
 
 public class Terrain extends Rectangle {
+	protected ArrayList<Entity> objects;
 	private Color color;
 	private int width, height;
 	private int pos;
@@ -15,10 +18,15 @@ public class Terrain extends Rectangle {
 		this.pos = pos;
 		width = Frame.SQUARE;
 		height = Frame.HEIGHT;
+		objects = new ArrayList<Entity>();
 	}
 	
 	public int getPos() {
 		return pos;
+	}
+	
+	public ArrayList<Entity> getObjects() {
+		return objects;
 	}
 	
 	public void draw(Graphics g) {
