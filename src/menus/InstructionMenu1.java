@@ -15,91 +15,85 @@ import javax.swing.JPanel;
 import main.Frame;
 import tools.Tools;
 
-public class InstructionMenu extends JPanel implements ActionListener {
-	private JLabel title, wText, sText, dText, eatText, eatText2;
-	private JButton back;
-	private ImageIcon w, s, d, filmore;
+public class InstructionMenu1 extends JPanel implements ActionListener {
+	private JLabel title, wText, sText, dText;
+	private JButton back, next;
+	private ImageIcon w, s, d;
 	
-	public InstructionMenu(ImageIcon filmore, ImageIcon w, ImageIcon s, ImageIcon d, Font font) {
+	public InstructionMenu1(ImageIcon w, ImageIcon s, ImageIcon d, Font font) {
 
 		this.w = w;
 		this.s = s;
 		this.d = d;
-		this.filmore = filmore;
 		
 		title = new JLabel();
 		wText = new JLabel();
 		sText = new JLabel();
 		dText = new JLabel();
-		eatText = new JLabel();
-		eatText2 = new JLabel();
 
 		this.setBackground(Tools.WATER);
 
 		wText.setText("Press W to move up");
 		sText.setText("Press S to move down");
 		dText.setText("Press D to move right");
-		eatText.setText("No movement for 10s will");
-		eatText2.setText("cause Filmore to munch you");
 
-		wText.setLocation(150, 80);
+		wText.setLocation(175, 100);
 		wText.setSize(500, 100);
 		wText.setFont(font);
 
-		sText.setLocation(150, 160);
+		sText.setLocation(175, 200);
 		sText.setSize(500, 100);
 		sText.setFont(font);
 
-		dText.setLocation(150, 240);
+		dText.setLocation(175, 300);
 		dText.setSize(500, 100);
 		dText.setFont(font);
-		
-		eatText.setLocation(150, 305);
-		eatText.setSize(500, 100);
-		eatText.setFont(font);
-		
-		eatText2.setLocation(150, 335);
-		eatText2.setSize(500, 100);
-		eatText2.setFont(font);
 
 		title.setText("Crossy Road Instructions");
-		title.setLocation(20, -10);
+		title.setLocation(20, 10);
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
 		back = new JButton();
-		back.setBounds(190, 440, 120, 50);
+		back.setBounds(110, 421, 120, 50);
 		back.addActionListener(this);
-		back.setText("BACK");
+		back.setText("MENU");
 		back.setFont(font);
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
 
+		next = new JButton();
+		next.setBounds(280, 421, 120, 50);
+		next.addActionListener(this);
+		next.setText("PAGE 2 >");
+		next.setFont(font);
+		next.setBorder(BorderFactory.createLineBorder(Color.black));
+		next.setBackground(Color.white);
+		
 		this.add(wText);
 		this.add(sText);
 		this.add(dText);
-		this.add(eatText);
-		this.add(eatText2);
 		this.add(back);
+		this.add(next);
 		this.add(title);
 		this.setLayout(null);
 		repaint();
 		this.setVisible(true);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == back) {
+		if(e.getSource() == back) {
 			Frame.layout.show(Frame.container, "startmenu");
+		}
+		else if(e.getSource() == next) {
+			Frame.layout.show(Frame.container, "instructionmenu2");
 		}
 	}
 
-	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(w.getImage(), 45, 100, 65, 65, null);
-		g.drawImage(s.getImage(), 45, 180, 65, 65, null);
-		g.drawImage(d.getImage(), 45, 260, 65, 65, null);
-		g.drawImage(filmore.getImage(), 45, 340, 65, 65, null);
+		g.drawImage(w.getImage(), 60, 120, 75, 75, null);
+		g.drawImage(s.getImage(), 60, 220, 75, 75, null);
+		g.drawImage(d.getImage(), 60, 320, 75, 75, null);
 	}
 }

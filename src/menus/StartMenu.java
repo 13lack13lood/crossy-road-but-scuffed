@@ -80,7 +80,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		if (e.getSource() == play) {
 			Frame.layout.show(Frame.container, "gamepanel");
 		} else if (e.getSource() == info) {
-			Frame.layout.show(Frame.container, "instructionmenu");
+			Frame.layout.show(Frame.container, "instructionmenu1");
 		} else if (e.getSource() == exit) {
 			System.exit(0);
 		} else if (e.getSource() == temp) {
