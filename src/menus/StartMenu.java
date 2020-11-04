@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 
 public class StartMenu extends JPanel implements ActionListener {
 
-	private JButton play, info, exit;
+	private JButton play, info, exit,temp;
 	private ImageIcon chicken;
 	private JLabel title;
 
@@ -55,17 +55,27 @@ public class StartMenu extends JPanel implements ActionListener {
 		exit.setBorder(BorderFactory.createLineBorder(Color.black));
 		exit.setBackground(Color.white);
 
+		
+		temp = new JButton();
+		temp.setBounds(350, 460, 75, 50);
+		temp.addActionListener(this);
+		temp.setText("END");
+		temp.setFont(font);
+		temp.setBorder(BorderFactory.createLineBorder(Color.black));
+		temp.setBackground(Color.white);
+		
+		
 		this.setLayout(null);
 		this.add(play);
 		this.add(info);
 		this.add(exit);
 		this.add(title);
+		this.add(temp);
 		repaint();
 		
 		this.setVisible(true);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == play) {
 			Frame.layout.show(Frame.container, "gamepanel");
@@ -73,10 +83,11 @@ public class StartMenu extends JPanel implements ActionListener {
 			Frame.layout.show(Frame.container, "instructionmenu");
 		} else if (e.getSource() == exit) {
 			System.exit(0);
-		}
+		} else if (e.getSource() == temp) {
+			Frame.layout.show(Frame.container, "eatenmenu");
+		} 
 	}
-
-	@Override
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(chicken.getImage(), 120, 90, 250, 250, null);
