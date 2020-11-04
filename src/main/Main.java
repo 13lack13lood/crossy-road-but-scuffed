@@ -19,7 +19,7 @@ public class Main {
 		InstructionMenu instructionMenu = new InstructionMenu(new ImageIcon("res/W.png"), new ImageIcon("res/S.png"), new ImageIcon("res/D.png"), new Font("Comic Sans MS", Font.BOLD, 25));
 		
 		Player player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
-		TerrainGenerator terrainGenerator = new TerrainGenerator(Frame.HEIGHT / Frame.SQUARE);
+		TerrainGenerator terrainGenerator = new TerrainGenerator();
 		GamePanel gamePanel = new GamePanel(player, terrainGenerator);
 
 		Frame.container.add(startMenu, "startmenu");

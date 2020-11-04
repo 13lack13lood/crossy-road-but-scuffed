@@ -10,10 +10,8 @@ import tools.Tools;
 public class TerrainGenerator {
 	
 	private ArrayList<Terrain> terrains;
-	private int columns;
 	
-	public TerrainGenerator(int columns) {
-		this.columns = columns;
+	public TerrainGenerator() {
 		terrains = generateFreshTerrain();
 	}
 	
@@ -31,12 +29,13 @@ public class TerrainGenerator {
 		return list;
 	}
 	
-	
-
-	
 	public void draw(Graphics g) {
 		for(Terrain terrain : terrains) {
 			terrain.draw(g);
 		}
+	}
+	
+	public ArrayList<Terrain> getTerrains(){
+		return terrains;
 	}
 }

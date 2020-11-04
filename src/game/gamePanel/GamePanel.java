@@ -7,14 +7,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Player;
+import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
-import main.Frame;
 import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
@@ -38,37 +36,54 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 
 	public void keyTyped(KeyEvent e) {}
 
-	public void keyPressed(KeyEvent e) {
-
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	public void keyReleased(KeyEvent e) {
-
 		if(e.getKeyCode() == 87) {
-			player.moveUp();
-			player.setIsMoving(true);
+			if(player.canMoveUp()) {
+				player.moveUp();
+				player.setIsMoving(true);
+			}
 		} 
 		
 		if(e.getKeyCode() == 83) {
-			player.moveDown();
-			player.setIsMoving(true);
+			if(player.canMoveDown()) {
+				player.moveDown();
+				player.setIsMoving(true);
+			}
 		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == timer) {
+			//collision detection
+			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
+			
+			if(player.hasCollided(playerTerrain.getObjects()) == 1) {
+				player.setCanMoveUp(false);
+			} else {
+				player.setCanMoveUp(true);
+			}
+			
+			if(player.hasCollided(playerTerrain.getObjects()) == 2) {
+				player.setCanMoveDown(false);
+			} else {
+				player.setCanMoveDown(true);
+			}
+			
 			//move player
-			if(player.playerDoneMoving())
-				player.setIsMoving(false);
+			if(player.canMove()) {
+				if(player.playerDoneMoving())
+					player.setIsMoving(false);
+				
+				if(player.isMoving())
+					if(player.getMoveDirection() == Tools.UP) 
+						player.moveUp();
+					else if(player.getMoveDirection() == Tools.DOWN)
+						player.moveDown();
+			}
 			
-			if(player.isMoving())
-				if(player.getMoveDirection() == Tools.UP) 
-					player.moveUp();
-				else if(player.getMoveDirection() == Tools.DOWN)
-					player.moveDown();
-			
-			
-			
+
 			repaint();
 			requestFocusInWindow();
 		}

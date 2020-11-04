@@ -65,6 +65,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		this.setVisible(true);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == play) {
 			Frame.layout.show(Frame.container, "gamepanel");
@@ -75,6 +76,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		}
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(chicken.getImage(), 120, 90, 250, 250, null);
