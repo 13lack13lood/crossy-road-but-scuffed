@@ -84,7 +84,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		} else if (e.getSource() == exit) {
 			System.exit(0);
 		} else if (e.getSource() == temp) {
-			Frame.layout.show(Frame.container, "endmenu");
+			Frame.layout.show(Frame.container, "eatenmenu");
 		} 
 	}
 	
