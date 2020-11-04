@@ -44,7 +44,7 @@ public class EatenMenu extends JPanel implements ActionListener{
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(eaten.getImage(), 30, -15, 450, 350, null);
-		g.drawImage(filmore.getImage(), 150, 325, 192, 64, null);
+		g.drawImage(eaten.getImage(), 10, 0, 500, 250, null);
+		g.drawImage(filmore.getImage(), 16, 250, (int)(192*2.5), (int)(64*2.5), null);
 	}
 }
