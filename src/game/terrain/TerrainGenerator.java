@@ -29,6 +29,38 @@ public class TerrainGenerator {
 		return list;
 	}
 	
+	public void move() {
+		
+	}
+	
+	private Terrain generateNewTerrain() {
+		Terrain lastTerrain = terrains.get(terrains.size() - 1);
+		int oddsOfSame;
+		int randomNumber = Tools.generateRandomNumber(1, 100);
+		
+		if(lastTerrain instanceof Grass) {
+			oddsOfSame = 56;
+		} else if(lastTerrain instanceof Water) {
+			oddsOfSame = 40;
+		} else if(lastTerrain instanceof Road) {
+			oddsOfSame = 49;
+		} else {
+			oddsOfSame = 19;
+		}
+		
+		if(randomNumber <= oddsOfSame) {
+			if(lastTerrain instanceof Grass) {
+				return new Grass(Tools.GRASS, terrains.size() - 1, ((Grass) lastTerrain).getPrevMovingSquares());
+			} else if(lastTerrain instanceof Water) {
+				oddsOfSame = 40;
+			} else if(lastTerrain instanceof Road) {
+				oddsOfSame = 49;
+			} else {
+				oddsOfSame = 19;
+			}
+		}
+	}
+	
 	public void draw(Graphics g) {
 		for(Terrain terrain : terrains) {
 			terrain.draw(g);

@@ -43,13 +43,16 @@ public class Grass extends Terrain {
 		}
 	}
 
-	@Override
 	public void draw(Graphics g) {
 		super.draw(g);
 		
 		for(Entity e : objects) {
 			e.draw(g);
 		}
+	}
+	
+	public ArrayList<Integer> getPrevMovingSquares() {
+		return prevMovingSquares;
 	}
 	
 	private ArrayList<Integer> generateTreePositions() {
