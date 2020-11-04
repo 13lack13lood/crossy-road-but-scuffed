@@ -28,6 +28,7 @@ public class EndMenu extends JPanel implements ActionListener{
 		main = new JButton();
 		score = new JLabel();
 		
+		//ADD SCORE LATER
 		score.setText("Score: - ");
 		score.setLocation(175, 240);
 		score.setSize(500, 100);
