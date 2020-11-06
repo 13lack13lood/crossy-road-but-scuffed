@@ -70,7 +70,6 @@ public class Player extends Entity {
 	
 	public int hasCollided(ArrayList<Entity> objects) {
 		for(Entity entity : objects) {
-//			System.out.println(entity.getY());
 			
 			if(entity.getY() + entity.getHeight() >= y && entity.getY() <= y) {
 				return 1;
@@ -79,7 +78,7 @@ public class Player extends Entity {
 			if(y + getHeight() >= entity.getY() && y <= entity.getY()) {
 				return 2;
 			}
-
+			//do collision check for x direction later
 		}
 		
 		return 0;
