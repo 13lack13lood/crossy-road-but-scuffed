@@ -17,23 +17,27 @@ public class Tools {
 	
 	public static final ImageIcon tree = new ImageIcon("res/tree.png");
 	public static final ImageIcon traintrack = new ImageIcon("res/traintrack.png");
-	public static final ImageIcon[] mcqueenCars = {
-			new ImageIcon("res/mcqueen_blue_down.png"),
+	public static final ImageIcon[] mcqueenCarsUp = {
 			new ImageIcon("res/mcqueen_blue_up.png"),
-			new ImageIcon("res/mcqueen_lime_down.png"),
 			new ImageIcon("res/mcqueen_lime_up.png"),
-			new ImageIcon("res/mcqueen_pink_down.png"),
 			new ImageIcon("res/mcqueen_pink_up.png"),
-			new ImageIcon("res/mcqueen_red_down.png"),
 			new ImageIcon("res/mcqueen_red_up.png")
 	};
-	public static final ImageIcon[] cars = {
-			new ImageIcon("res/blue_car_down.png"),
+	public static final ImageIcon[] mcqueenCarsDown = {
+			new ImageIcon("res/mcqueen_blue_down.png"),
+			new ImageIcon("res/mcqueen_lime_down.png"),
+			new ImageIcon("res/mcqueen_pink_down.png"),
+			new ImageIcon("res/mcqueen_red_down.png")
+	};
+	public static final ImageIcon[] carsUp = {
 			new ImageIcon("res/blue_car_up.png"),
-			new ImageIcon("res/orange_car_down.png"),
 			new ImageIcon("res/orange_car_up.png"),	
-			new ImageIcon("res/purple_car_down.png"),
-			new ImageIcon("res/purple_car_up.png"),	
+			new ImageIcon("res/purple_car_up.png")	
+	};
+	public static final ImageIcon[] carsDown = {
+			new ImageIcon("res/blue_car_down.png"),
+			new ImageIcon("res/orange_car_down.png"),
+			new ImageIcon("res/purple_car_down.png")
 	};
 	
 	public static int generateRandomNumber(int low, int high) {
@@ -55,5 +59,29 @@ public class Tools {
 		int number = generateRandomNumber(0, 100);
 		
 		return number <= odds;
+	} 
+	
+	public static ImageIcon generateCar(int height, int direction) {
+		
+		if(height == 1) {
+			if(direction==1) {
+				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length-1);
+				return Tools.mcqueenCarsUp[rand];
+			}
+			else {
+				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsDown.length-1);
+				return Tools.mcqueenCarsDown[rand];
+			}
+		}
+		else {
+			if(direction==1) {
+				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length-1);
+				return Tools.carsUp[rand];
+			}
+			else {
+				int rand = Tools.generateRandomNumber(0, Tools.carsDown.length-1);
+				return Tools.carsDown[rand];
+			}
+		}
 	}
 }

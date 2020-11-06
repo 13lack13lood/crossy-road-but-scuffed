@@ -88,8 +88,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 					else if(player.getMoveDirection() == Tools.DOWN)
 						player.moveDown();
 			}
-			
-
 			repaint();
 			requestFocusInWindow();
 		}

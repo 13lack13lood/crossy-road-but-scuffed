@@ -8,10 +8,11 @@ import main.Frame;
 
 public class Entity {
 	
-	private int width, height, x;
+	private int width, x;
+	protected int height;
 	protected int y;
 	private boolean canKill;
-	private ImageIcon image;
+	protected ImageIcon image;
 	
 	public Entity(ImageIcon image, int height, int width, int x, int y, boolean canKill) {
 		this.image = image;
