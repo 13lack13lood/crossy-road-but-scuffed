@@ -5,7 +5,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 
 import game.entities.Player;
-import game.gamePanel.GamePanel;
+import game.game.GamePanel;
 import game.terrain.TerrainGenerator;
 import menus.EatenMenu;
 import menus.EndMenu;

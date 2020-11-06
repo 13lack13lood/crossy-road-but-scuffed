@@ -3,6 +3,9 @@ package game.terrain;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import main.Frame;
+import tools.Tools;
+
 public class TrainTrack extends Terrain {
 
 	public TrainTrack(Color color, int pos) {
@@ -11,7 +14,9 @@ public class TrainTrack extends Terrain {
 	
 	public void draw(Graphics g) {
 		super.draw(g);
-		//draw the traintrack
+		for(int i = 0; i < Frame.HEIGHT; i+= Frame.SQUARE) {
+			g.drawImage(Tools.traintrack.getImage(), getPos() * Frame.SQUARE, i, null);
+		}
 		
 	}
 
