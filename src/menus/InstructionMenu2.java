@@ -33,8 +33,8 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 
 		eatText.setText("No movement for 10s will");
 		eatText2.setText("cause Filmore to munch you");
-		mcqText.setText("Getting hit by McQueen will");
-		mcqText2.setText("grant you 10 points");
+		mcqText.setText("Moving forward will");
+		mcqText2.setText("grant you 1 point");
 		
 		eatText.setLocation(150, 95);
 		eatText.setSize(500, 100);
@@ -60,17 +60,26 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		back = new JButton();
 		back.setBounds(110, 421, 120, 50);
 		back.addActionListener(this);
-		back.setText("< PAGE 1");
+		back.setText("PAGE 1");
 		back.setFont(font);
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
 
+		next = new JButton();
+		next.setBounds(280, 421, 120, 50);
+		next.addActionListener(this);
+		next.setText("NEXT");
+		next.setFont(font);
+		next.setBorder(BorderFactory.createLineBorder(Color.black));
+		next.setBackground(Color.white);
+		
 		this.add(eatText);
 		this.add(eatText2);
 		this.add(mcqText);
 		this.add(mcqText2);
 		this.add(back);
 		this.add(title);
+		this.add(next);
 		this.setLayout(null);
 		repaint();
 		this.setVisible(true);
@@ -79,6 +88,9 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == back) {
 			Frame.layout.show(Frame.container, "instructionmenu1");
+		}
+		if (e.getSource() == next) {
+			Frame.layout.show(Frame.container, "startmenu");
 		}
 	}
 

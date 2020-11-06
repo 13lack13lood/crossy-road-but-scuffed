@@ -65,7 +65,7 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 		next = new JButton();
 		next.setBounds(280, 421, 120, 50);
 		next.addActionListener(this);
-		next.setText("PAGE 2 >");
+		next.setText("PAGE 2");
 		next.setFont(font);
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
