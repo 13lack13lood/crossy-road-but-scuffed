@@ -14,23 +14,13 @@ import tools.Tools;
 
 public class Grass extends Terrain {
 	
-	private ArrayList<Integer> prevMovingSquares;
+	private static int maxNumOfTrees = 3;
 	
-	public Grass(Color color, int pos, ArrayList<Integer> prevMovingSquares) {
+	public Grass(Color color, int pos) {
 		super(color, pos);	
-		
-		this.prevMovingSquares = prevMovingSquares;
 		
 		ArrayList<Integer> treePos = generateTreePositions();
 		for(int i : treePos) {
-			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
-		}
-	}
-	
-	public Grass(Color color, int pos) {
-		super(color, pos);
-		
-		for(int i = 0; i < Frame.HEIGHT / Frame.SQUARE; i++) {
 			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
 		}
 	}
@@ -45,46 +35,13 @@ public class Grass extends Terrain {
 
 	public void draw(Graphics g) {
 		super.draw(g);
-		
+		updateEntityPos();
 		for(Entity e : objects) {
 			e.draw(g);
 		}
 	}
 	
-	public ArrayList<Integer> getPrevMovingSquares() {
-		return prevMovingSquares;
-	}
-	
 	private ArrayList<Integer> generateTreePositions() {
-		ArrayList<Integer> treePositions = new ArrayList<Integer>();
-		
-		
-		for(int i = 0; i < prevMovingSquares.size(); i++) {
-			int pos = prevMovingSquares.get(i);
-			
-			ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(pos));
-			
-			if(pos == 0) {
-				if(!treePositions.contains(pos + 1)) {
-					list.add(pos + 1);
-				}
-			} else if(pos == Frame.HEIGHT / Frame.SQUARE) {
-				if(!treePositions.contains(pos - 1)) {
-					list.add(pos - 1);
-				}
-			} else {
-				if(!treePositions.contains(pos - 1)) {
-					list.add(pos - 1);
-				}
-				
-				if(!treePositions.contains(pos + 1)) {
-					list.add(pos + 1);
-				}
-			}
-			
-			treePositions.add(list.get(Tools.generateRandomNumber(0, list.size() - 1)));
-		}
-
-		return treePositions;
+		return Tools.generateRandomNumbers(0, Frame.HEIGHT / Frame.SQUARE, Tools.generateRandomNumber(1, maxNumOfTrees));
 	}
 }

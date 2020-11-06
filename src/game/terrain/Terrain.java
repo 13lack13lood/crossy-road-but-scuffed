@@ -25,8 +25,18 @@ public class Terrain extends Rectangle {
 		return pos;
 	}
 	
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+	
 	public ArrayList<Entity> getObjects() {
 		return objects;
+	}
+	
+	protected void updateEntityPos() {
+		for(Entity e : objects) {
+			e.setX(pos * Frame.SQUARE);
+		}
 	}
 	
 	public void draw(Graphics g) {
