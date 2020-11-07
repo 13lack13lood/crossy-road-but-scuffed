@@ -55,9 +55,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		
 		if(e.getKeyCode() == 68) {
 			terrainGenerator.setIsMoving(true);
-		} else {
-			
-		}
+		} 
 	}
 
 	public void actionPerformed(ActionEvent e) {
