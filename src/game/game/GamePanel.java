@@ -54,7 +54,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 		
 		if(e.getKeyCode() == 68) {
-			terrainGenerator.setIsMoving(true);
+			if(player.isCanMoveForward())
+				terrainGenerator.setIsMoving(true);
 		} 
 	}
 
@@ -62,17 +63,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		if(e.getSource() == timer) {
 			//collision detection
 			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
+			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
 			
-			if(player.hasCollided(playerTerrain.getObjects()) == 1) {
+			if(player.hasCollided(playerTerrain.getObjects(), false) == 1) {
+				player.moveDown();
 				player.setCanMoveUp(false);
 			} else {
 				player.setCanMoveUp(true);
 			}
 			
-			if(player.hasCollided(playerTerrain.getObjects()) == 2) {
+			if(player.hasCollided(playerTerrain.getObjects(), false) == 2) {
+				player.moveUp();
 				player.setCanMoveDown(false);
 			} else {
 				player.setCanMoveDown(true);
+			}
+			
+			if(player.hasCollided(nextTerrain.getObjects(), true) == 3) {
+				player.setCanMoveForward(false);
+			} else {
+				player.setCanMoveForward(true);
 			}
 			
 			//move player
