@@ -7,12 +7,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
+import main.Frame;
 import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
@@ -83,6 +85,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 				player.setCanMoveForward(false);
 			} else {
 				player.setCanMoveForward(true);
+			}
+			
+			if(player.isDead()) {
+				player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
+				terrainGenerator = new TerrainGenerator();
+				Frame.layout.show(Frame.container, "endmenu");
 			}
 			
 			//move player

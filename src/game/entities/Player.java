@@ -90,10 +90,7 @@ public class Player extends Entity {
 			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
 			
 			if(entityHitbox.intersects(playerHitbox)) {
-				if(entity.isCanKill()) {
-					isDead = true;
-					return 0;
-				} else {
+				if(isNextTerrain) {
 					if(entity.getY() < getY()) {
 						return 1;
 					}
@@ -103,24 +100,24 @@ public class Player extends Entity {
 					}
 					
 					return 3;
+				} else {
+					if(entity.isCanKill()) {
+						isDead = true;
+						return 0;
+					} else {
+						if(entity.getY() < getY()) {
+							return 1;
+						}
+						
+						if(entity.getY() > getY()) {
+							return 2;
+						}
+						
+						return 3;
+					}
 				}
+				
 			}
-			
-			
-//			if(entity.getY() + entity.getHeight() >= y && entity.getY() <= y) {
-//				return 1;
-//			}
-//			
-//			if(y + getHeight() >= entity.getY() && y <= entity.getY()) {
-//				return 2;
-//			}
-//			
-//			Rectangle hitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
-//			Rectangle playerHitBox = new Rectangle(getX(), getY(), getWidth(), getHeight());
-//			
-//			if(playerHitBox.intersects(hitbox)) {
-//				return 3;
-//			}
 		}
 		
 		return 0;
