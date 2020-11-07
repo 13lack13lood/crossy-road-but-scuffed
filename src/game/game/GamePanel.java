@@ -1,6 +1,7 @@
 package game.game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
 import main.Frame;
+import main.Main;
+import menus.EndMenu;
 import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
@@ -56,8 +59,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 		
 		if(e.getKeyCode() == 68) {
-			if(player.isCanMoveForward())
+			if(player.isCanMoveForward()) {
+				Score.updateScore();
 				terrainGenerator.setIsMoving(true);
+
+			}
 		} 
 	}
 
@@ -90,6 +96,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			if(player.isDead()) {
 				player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
 				terrainGenerator = new TerrainGenerator();
+				Main.addEndMenu(new EndMenu(new ImageIcon("res/gameover.png"),new Font("Comic Sans MS", Font.BOLD, 20)));
+				Score.resetScore();
+				
 				Frame.layout.show(Frame.container, "endmenu");
 			}
 			
@@ -119,7 +128,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		
 		terrainGenerator.draw(g);
 		player.draw(g);
-
+		Score.drawScore(g);
 		
 	}
 	

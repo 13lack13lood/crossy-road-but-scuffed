@@ -1,8 +1,8 @@
 package game.entities;
 
-import main.Frame;
-
 import javax.swing.ImageIcon;
+
+import main.Frame;
 
 public class Vehicle extends Entity {
 	private int speed;

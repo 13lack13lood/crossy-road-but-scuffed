@@ -5,12 +5,14 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import game.game.Score;
 import main.Frame;
 import tools.Tools;
 
@@ -29,7 +31,7 @@ public class EndMenu extends JPanel implements ActionListener{
 		score = new JLabel();
 		
 		//ADD SCORE LATER
-		score.setText("Score: - ");
+		score.setText("Score: " + Score.getScore());
 		score.setLocation(175, 240);
 		score.setSize(500, 100);
 		score.setFont(new Font("Comic Sans MS", Font.BOLD, 40));

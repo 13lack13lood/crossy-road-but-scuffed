@@ -1,8 +1,10 @@
 package main;
 
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.Container;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class Frame extends JFrame {
 
