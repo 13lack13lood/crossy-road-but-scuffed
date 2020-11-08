@@ -55,7 +55,7 @@ public class Tools {
 		for(int i = 0; i < size; i++) {
 			list.add(generateRandomNumber(low, high));
 		}
-		System.out.println(list);
+		
 		return list;
 	}
 	
@@ -64,26 +64,22 @@ public class Tools {
 		
 		return number <= odds;
 	} 
-	
+
 	public static ImageIcon generateCar(int height, int direction) {
-		
-		if(height == 1) {
-			if(direction==1) {
-				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length-1);
+		if (height == 1) {
+			if (direction == 1) {
+				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length - 1);
 				return Tools.mcqueenCarsUp[rand];
-			}
-			else {
-				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsDown.length-1);
+			} else {
+				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsDown.length - 1);
 				return Tools.mcqueenCarsDown[rand];
 			}
-		}
-		else {
-			if(direction==1) {
-				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length-1);
+		} else {
+			if (direction == 1) {
+				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length - 1);
 				return Tools.carsUp[rand];
-			}
-			else {
-				int rand = Tools.generateRandomNumber(0, Tools.carsDown.length-1);
+			} else {
+				int rand = Tools.generateRandomNumber(0, Tools.carsDown.length - 1);
 				return Tools.carsDown[rand];
 			}
 		}

@@ -1,18 +1,23 @@
 package game.game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
+import main.Frame;
+import main.Main;
+import menus.EndMenu;
 import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
@@ -54,27 +59,47 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 		
 		if(e.getKeyCode() == 68) {
-			terrainGenerator.setIsMoving(true);
-		} else {
-			
-		}
+			if(player.isCanMoveForward()) {
+				Score.updateScore();
+				terrainGenerator.setIsMoving(true);
+
+			}
+		} 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == timer) {
 			//collision detection
 			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
+			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
 			
-			if(player.hasCollided(playerTerrain.getObjects()) == 1) {
+			if(player.hasCollided(playerTerrain.getObjects(), false) == 1) {
+				player.moveDown();
 				player.setCanMoveUp(false);
 			} else {
 				player.setCanMoveUp(true);
 			}
 			
-			if(player.hasCollided(playerTerrain.getObjects()) == 2) {
+			if(player.hasCollided(playerTerrain.getObjects(), false) == 2) {
+				player.moveUp();
 				player.setCanMoveDown(false);
 			} else {
 				player.setCanMoveDown(true);
+			}
+			
+			if(player.hasCollided(nextTerrain.getObjects(), true) == 3) {
+				player.setCanMoveForward(false);
+			} else {
+				player.setCanMoveForward(true);
+			}
+			
+			if(player.isDead()) {
+				player = new Player(new ImageIcon("res/chicken.png"), Frame.SQUARE * 3, 8);
+				terrainGenerator = new TerrainGenerator();
+				Main.addEndMenu(new EndMenu(new ImageIcon("res/gameover.png"),new Font("Comic Sans MS", Font.BOLD, 20)));
+				Score.resetScore();
+				
+				Frame.layout.show(Frame.container, "endmenu");
 			}
 			
 			//move player
@@ -103,7 +128,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		
 		terrainGenerator.draw(g);
 		player.draw(g);
-
+		Score.drawScore(g);
 		
 	}
 	

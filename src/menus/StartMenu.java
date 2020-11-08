@@ -1,8 +1,5 @@
 package menus;
 
-import javax.swing.JPanel;
-
-import main.Frame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -13,6 +10,9 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import main.Frame;
 
 public class StartMenu extends JPanel implements ActionListener {
 

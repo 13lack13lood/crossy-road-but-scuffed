@@ -1,5 +1,6 @@
 package game.entities;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -13,6 +14,8 @@ public class Player extends Entity {
 	private int moveDirection;
 	private boolean canMoveUp;
 	private boolean canMoveDown;
+	private boolean canMoveForward;
+	private boolean isDead;
 
 	public Player(ImageIcon playerIcon, int y, int dy) {
 		super(playerIcon, Frame.SQUARE, Frame.SQUARE, Frame.SQUARE * 3, y, false);
@@ -20,6 +23,7 @@ public class Player extends Entity {
 		this.dy = dy;
 		canMoveUp = true;
 		canMoveDown = true;
+		setCanMoveForward(true);
 	}
 	
 	public int getMoveDirection() {
@@ -46,6 +50,14 @@ public class Player extends Entity {
 		return canMoveUp || canMoveDown;
 	}
 	
+	public boolean isDead() {
+		return isDead;
+	}
+	
+	public void setIsDead(boolean isDead) {
+		this.isDead = isDead;
+	}
+	
 	public void moveUp() {
 		moveDirection = Tools.UP;
 		y -= (y <= 0) ? 0 : dy;
@@ -68,19 +80,54 @@ public class Player extends Entity {
 		return y % Frame.SQUARE == 0;
 	}
 	
-	public int hasCollided(ArrayList<Entity> objects) {
+	public int hasCollided(ArrayList<Entity> objects, boolean isNextTerrain) {
 		for(Entity entity : objects) {
+			Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
 			
-			if(entity.getY() + entity.getHeight() >= y && entity.getY() <= y) {
-				return 1;
-			}
+			if(isNextTerrain)
+				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(), entity.getHeight());
 			
-			if(y + getHeight() >= entity.getY() && y <= entity.getY()) {
-				return 2;
+			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
+			
+			if(entityHitbox.intersects(playerHitbox)) {
+				if(isNextTerrain) {
+					if(entity.getY() < getY()) {
+						return 1;
+					}
+					
+					if(entity.getY() > getY()) {
+						return 2;
+					}
+					
+					return 3;
+				} else {
+					if(entity.isCanKill()) {
+						isDead = true;
+						return 0;
+					} else {
+						if(entity.getY() < getY()) {
+							return 1;
+						}
+						
+						if(entity.getY() > getY()) {
+							return 2;
+						}
+						
+						return 3;
+					}
+				}
+				
 			}
-			//do collision check for x direction later
 		}
 		
 		return 0;
+	}
+
+	public boolean isCanMoveForward() {
+		return canMoveForward;
+	}
+
+	public void setCanMoveForward(boolean canMoveForward) {
+		this.canMoveForward = canMoveForward;
 	}
 }
