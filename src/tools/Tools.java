@@ -39,6 +39,9 @@ public class Tools {
 			new ImageIcon("res/orange_car_down.png"),
 			new ImageIcon("res/purple_car_down.png")
 	};
+	public static final ImageIcon[] trains = {
+			new ImageIcon("res/train.png"),
+	};
 	
 	public static int generateRandomNumber(int low, int high) {
 		Random random = new Random();
@@ -79,5 +82,8 @@ public class Tools {
 				return Tools.carsDown[rand];
 			}
 		}
+	}
+	public static ImageIcon generateTrain() {
+		return Tools.trains[0];
 	}
 }
