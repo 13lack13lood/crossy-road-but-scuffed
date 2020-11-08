@@ -41,7 +41,6 @@ public class Tools {
 	};
 	public static final ImageIcon[] trains = {
 			new ImageIcon("res/train.png"),
-			new ImageIcon("res/train.png")
 	};
 	
 	public static int generateRandomNumber(int low, int high) {
@@ -84,23 +83,7 @@ public class Tools {
 			}
 		}
 	}
-	public static ImageIcon generateTrain(int height, int direction) {
-		
-		if(height == 1) {
-			if(direction==1) {
-				return Tools.trains[0];
-			}
-			else {
-				return Tools.trains[1];
-			}
-		}
-		else {
-			if(direction==1) {
-				return Tools.trains[0];
-			}
-			else {
-				return Tools.trains[1];
-			}
-		}
+	public static ImageIcon generateTrain() {
+		return Tools.trains[0];
 	}
 }
