@@ -25,23 +25,23 @@ public class Player extends Entity {
 		canMoveDown = true;
 		setCanMoveForward(true);
 	}
-	
+
 	public int getMoveDirection() {
 		return moveDirection;
 	}
-	
+
 	public boolean canMoveUp() {
 		return canMoveUp;
 	}
-	
+
 	public boolean canMoveDown() {
 		return canMoveDown;
 	}
-	
+
 	public void setCanMoveUp(boolean b) {
 		canMoveUp = b;
 	}
-	
+
 	public void setCanMoveDown(boolean b) {
 		canMoveDown = b;
 	}
@@ -49,77 +49,78 @@ public class Player extends Entity {
 	public boolean canMove() {
 		return canMoveUp || canMoveDown;
 	}
-	
+
 	public boolean isDead() {
 		return isDead;
 	}
-	
+
 	public void setIsDead(boolean isDead) {
 		this.isDead = isDead;
 	}
-	
+
 	public void moveUp() {
 		moveDirection = Tools.UP;
 		y -= (y <= 0) ? 0 : dy;
 	}
-	
+
 	public void moveDown() {
 		moveDirection = Tools.DOWN;
 		y += (y >= Frame.HEIGHT - Frame.SQUARE) ? 0 : dy;
 	}
-	
+
 	public boolean isMoving() {
 		return isMoving;
 	}
-	
+
 	public void setIsMoving(boolean b) {
 		isMoving = b;
 	}
-	
+
 	public boolean playerDoneMoving() {
 		return y % Frame.SQUARE == 0;
 	}
-	
+
 	public int hasCollided(ArrayList<Entity> objects, boolean isNextTerrain) {
-		for(Entity entity : objects) {
+		for (Entity entity : objects) {
 			Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
-			
-			if(isNextTerrain)
-				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(), entity.getHeight());
-			
+
+			if (isNextTerrain)
+				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(),
+						entity.getHeight());
+
 			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
-			
-			if(entityHitbox.intersects(playerHitbox)) {
-				if(isNextTerrain) {
-					if(entity.getY() < getY()) {
+
+			if (entityHitbox.intersects(playerHitbox)) {
+				if (isNextTerrain) {
+					if (entity.getY() < getY()) {
 						return 1;
 					}
-					
-					if(entity.getY() > getY()) {
+
+					if (entity.getY() > getY()) {
 						return 2;
 					}
-					
+
 					return 3;
 				} else {
-					if(entity.isCanKill()) {
+					if (entity.isCanKill()) {
 						isDead = true;
 						return 0;
 					} else {
-						if(entity.getY() < getY()) {
+						if (entity.getY() < getY()) {
 							return 1;
 						}
-						
-						if(entity.getY() > getY()) {
+
+						if (entity.getY() > getY()) {
 							return 2;
 						}
-						
+
 						return 3;
 					}
 				}
-				
+
 			}
 		}
-		
+
 		return 0;
 	}
 

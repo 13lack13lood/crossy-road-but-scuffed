@@ -21,13 +21,14 @@ public class TrainTrack extends Terrain {
 		for (int i = 0; i < Frame.HEIGHT; i += Frame.SQUARE) {
 			g.drawImage(Tools.traintrack.getImage(), getPos() * Frame.SQUARE, i, null);
 		}
-		
+
 		updateEntityPos();
-		
+
 		for (Entity e : objects) {
 			((Train) e).move();
 			e.draw(g);
-			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT || e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
+			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT
+					|| e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
 				objects.remove(0);
 				objects.add(new Train(getPos() * Frame.SQUARE));
 			}

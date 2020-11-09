@@ -7,13 +7,13 @@ import javax.swing.ImageIcon;
 import main.Frame;
 
 public class Entity {
-	
+
 	private int width, x;
 	protected int height;
 	protected int y;
 	private boolean canKill;
 	protected ImageIcon image;
-	
+
 	public Entity(ImageIcon image, int height, int width, int x, int y, boolean canKill) {
 		this.image = image;
 		this.height = height;
@@ -22,7 +22,7 @@ public class Entity {
 		this.y = y;
 		this.canKill = canKill;
 	}
-	
+
 	public void draw(Graphics g) {
 		g.drawImage(image.getImage(), x, y, Frame.SQUARE, height, null);
 	}
@@ -42,21 +42,21 @@ public class Entity {
 	public ImageIcon getImage() {
 		return image;
 	}
-	
+
 	public int getX() {
 		return x;
 	}
-	
+
 	public int getY() {
 		return y;
 	}
-	
+
 	public void setX(int x) {
 		this.x = x;
 	}
-	
+
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 }

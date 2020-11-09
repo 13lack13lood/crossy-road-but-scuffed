@@ -16,48 +16,47 @@ import game.game.Score;
 import main.Frame;
 import tools.Tools;
 
-public class EndMenu extends JPanel implements ActionListener{
+public class EndMenu extends JPanel implements ActionListener {
 	private JButton again, exit, main;
 	private ImageIcon gameover;
 	private JLabel score;
-	
+
 	public EndMenu(ImageIcon gameover, Font font) {
-		
+
 		this.setBackground(Tools.WATER);
 		this.gameover = gameover;
 		again = new JButton();
 		exit = new JButton();
 		main = new JButton();
 		score = new JLabel();
-		
-		//ADD SCORE LATER
+
 		score.setText("Score: " + Score.getScore());
 		score.setLocation(175, 240);
 		score.setSize(500, 100);
-		score.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		score.setFont(font.deriveFont(40f));
 		score.setForeground(Color.black);
-		
+
 		again.setBounds(10, 350, 150, 75);
 		again.addActionListener(this);
 		again.setText("PLAY AGAIN");
 		again.setFont(font);
 		again.setBorder(BorderFactory.createLineBorder(Color.black));
 		again.setBackground(Color.white);
-		
+
 		main.setBounds(180, 350, 150, 75);
 		main.addActionListener(this);
 		main.setText("MAIN MENU");
 		main.setFont(font);
 		main.setBorder(BorderFactory.createLineBorder(Color.black));
 		main.setBackground(Color.white);
-		
+
 		exit.setBounds(350, 350, 150, 75);
 		exit.addActionListener(this);
 		exit.setText("EXIT");
 		exit.setFont(font);
 		exit.setBorder(BorderFactory.createLineBorder(Color.black));
 		exit.setBackground(Color.white);
-		
+
 		this.add(again);
 		this.add(exit);
 		this.add(main);
@@ -66,7 +65,7 @@ public class EndMenu extends JPanel implements ActionListener{
 		repaint();
 		this.setVisible(true);
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == again) {
 			Frame.layout.show(Frame.container, "gamepanel");
@@ -76,7 +75,7 @@ public class EndMenu extends JPanel implements ActionListener{
 			System.exit(0);
 		}
 	}
-	
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(gameover.getImage(), 50, -50, 400, 400, null);

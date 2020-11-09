@@ -16,11 +16,11 @@ import main.Frame;
 import tools.Tools;
 
 public class InstructionMenu2 extends JPanel implements ActionListener {
-	private JLabel title,eatText, eatText2, mcqText, mcqText2;
+	private JLabel title, eatText, eatText2, mcqText, mcqText2;
 	private JButton back, next;
 	private ImageIcon mcqueen, filmore;
-	
-	public InstructionMenu2(ImageIcon filmore, 	ImageIcon mcqueen, Font font) {
+
+	public InstructionMenu2(ImageIcon filmore, ImageIcon mcqueen, Font font) {
 		this.filmore = filmore;
 		this.mcqueen = mcqueen;
 		title = new JLabel();
@@ -35,19 +35,19 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		eatText2.setText("cause Filmore to munch you");
 		mcqText.setText("Moving forward will");
 		mcqText2.setText("grant you 1 point");
-		
+
 		eatText.setLocation(150, 95);
 		eatText.setSize(500, 100);
 		eatText.setFont(font);
-		
+
 		eatText2.setLocation(150, 125);
 		eatText2.setSize(500, 100);
 		eatText2.setFont(font);
-		
+
 		mcqText.setLocation(150, 195);
 		mcqText.setSize(500, 100);
 		mcqText.setFont(font);
-		
+
 		mcqText2.setLocation(150, 225);
 		mcqText2.setSize(500, 100);
 		mcqText2.setFont(font);
@@ -72,7 +72,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		next.setFont(font);
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
-		
+
 		this.add(eatText);
 		this.add(eatText2);
 		this.add(mcqText);
@@ -100,5 +100,3 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		g.drawImage(mcqueen.getImage(), 45, 225, 65, 65, null);
 	}
 }
-
-

@@ -19,13 +19,13 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 	private JLabel title, wText, sText, dText;
 	private JButton back, next;
 	private ImageIcon w, s, d;
-	
+
 	public InstructionMenu1(ImageIcon w, ImageIcon s, ImageIcon d, Font font) {
 
 		this.w = w;
 		this.s = s;
 		this.d = d;
-		
+
 		title = new JLabel();
 		wText = new JLabel();
 		sText = new JLabel();
@@ -69,7 +69,7 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 		next.setFont(font);
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
-		
+
 		this.add(wText);
 		this.add(sText);
 		this.add(dText);
@@ -82,10 +82,9 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == back) {
+		if (e.getSource() == back) {
 			Frame.layout.show(Frame.container, "startmenu");
-		}
-		else if(e.getSource() == next) {
+		} else if (e.getSource() == next) {
 			Frame.layout.show(Frame.container, "instructionmenu2");
 		}
 	}
