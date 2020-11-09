@@ -69,6 +69,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer) {
+			
 			// collision detection
 			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
 			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
