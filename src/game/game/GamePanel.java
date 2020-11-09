@@ -15,7 +15,6 @@ import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
 import main.Frame;
 import main.Main;
-import menus.EndMenu;
 import tools.Tools;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
@@ -60,9 +59,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (e.getKeyCode() == 68) {
 			if (player.isCanMoveForward()) {
+				player.setAfkTime();
+				
 				Score.updateScore();
 				terrainGenerator.setIsMoving(true);
-
 			}
 		}
 	}
@@ -96,13 +96,26 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 			// check if the player has died
 			if (player.isDead()) {
+				Main.endMenu.setScore(Score.getScore());
+
+
+				if(player.isEaten()) {
+					Frame.layout.show(Frame.container, "eatenmenu");
+					
+				} else {
+					Frame.layout.show(Frame.container, "endmenu");
+				}
+				
 				player = new Player(Tools.chicken, Frame.SQUARE * 3, 8);
 				terrainGenerator = new TerrainGenerator();
-				Main.addEndMenu(new EndMenu(Tools.gameOver, Tools.font));
 				Score.resetScore();
 
-				Frame.layout.show(Frame.container, "endmenu");
 			}
+			if(player.isAfk()) {
+				player.setEaten(true);
+				player.setIsDead(true);
+			}
+
 
 			// move player
 			if (player.canMove()) {
@@ -115,7 +128,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					else if (player.getMoveDirection() == Tools.DOWN)
 						player.moveDown();
 			}
-
+			
 			repaint();
 			requestFocusInWindow();
 		}

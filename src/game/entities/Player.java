@@ -16,6 +16,9 @@ public class Player extends Entity {
 	private boolean canMoveDown;
 	private boolean canMoveForward;
 	private boolean isDead;
+	private boolean isEaten;
+	private long afkTime;
+	private boolean hasMoved;
 
 	public Player(ImageIcon playerIcon, int y, int dy) {
 		super(playerIcon, Frame.SQUARE, Frame.SQUARE, Frame.SQUARE * 3, y, false);
@@ -24,6 +27,7 @@ public class Player extends Entity {
 		canMoveUp = true;
 		canMoveDown = true;
 		setCanMoveForward(true);
+		hasMoved = false;
 	}
 
 	public int getMoveDirection() {
@@ -130,5 +134,30 @@ public class Player extends Entity {
 
 	public void setCanMoveForward(boolean canMoveForward) {
 		this.canMoveForward = canMoveForward;
+	}
+
+	public boolean isAfk() {
+		long currentTime = System.currentTimeMillis();
+		return currentTime - afkTime >= 10000 && currentTime - afkTime < 100000;
+	}
+
+	public void setAfkTime() {
+		afkTime = System.currentTimeMillis();
+	}
+
+	public boolean isHasMoved() {
+		return hasMoved;
+	}
+
+	public void setHasMoved(boolean hasMoved) {
+		this.hasMoved = hasMoved;
+	}
+
+	public boolean isEaten() {
+		return isEaten;
+	}
+
+	public void setEaten(boolean isEaten) {
+		this.isEaten = isEaten;
 	}
 }

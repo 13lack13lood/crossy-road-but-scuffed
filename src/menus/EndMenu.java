@@ -30,7 +30,6 @@ public class EndMenu extends JPanel implements ActionListener {
 		main = new JButton();
 		score = new JLabel();
 
-		score.setText("Score: " + Score.getScore());
 		score.setLocation(175, 240);
 		score.setSize(500, 100);
 		score.setFont(font.deriveFont(40f));
@@ -66,6 +65,10 @@ public class EndMenu extends JPanel implements ActionListener {
 		this.setVisible(true);
 	}
 
+	public void setScore(int intScore) {
+		score.setText("Score: " + intScore);
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == again) {
 			Frame.layout.show(Frame.container, "gamepanel");
