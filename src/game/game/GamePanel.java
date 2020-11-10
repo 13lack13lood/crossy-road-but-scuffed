@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import game.entities.Filmore;
 import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
@@ -22,11 +23,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	private Timer timer;
 	private Player player;
 	private TerrainGenerator terrainGenerator;
+	private Filmore filmore;
 
-	public GamePanel(Player player, TerrainGenerator terrainGenerator) {
+	public GamePanel(Player player, TerrainGenerator terrainGenerator, Filmore filmore) {
 		this.setBackground(Color.white);
 		this.player = player;
 		this.terrainGenerator = terrainGenerator;
+		this.filmore = filmore;
 
 		addKeyListener(this);
 		setFocusable(true);
@@ -144,8 +147,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		terrainGenerator.setIsMoving(false);
 
 		terrainGenerator.draw(g);
-		player.draw(g);
+
+		if(player.isFilmoreIsMove()) {
+			filmore.draw(g);
+			
+			if(player.getY() <= filmore.getY()) {
+				player.draw(g);
+			}
+			
+			filmore.move();
+		} else {
+			player.draw(g);
+		}
+		
 		Score.drawScore(g);
+		
+
 	}
 
 }

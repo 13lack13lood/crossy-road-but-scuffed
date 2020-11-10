@@ -64,7 +64,7 @@ public class Tools {
 	}
 
 	public static ImageIcon generateCar(int height, int direction) {
-		if (height == UP) {
+		if (height == 1) {
 			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length - 1);
 				return Tools.mcqueenCarsUp[rand];
@@ -73,7 +73,7 @@ public class Tools {
 				return Tools.mcqueenCarsDown[rand];
 			}
 		} else {
-			if (direction == DOWN) {
+			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length - 1);
 				return Tools.carsUp[rand];
 			} else {

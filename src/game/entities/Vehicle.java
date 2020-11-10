@@ -3,6 +3,7 @@ package game.entities;
 import javax.swing.ImageIcon;
 
 import main.Frame;
+import tools.Tools;
 
 public class Vehicle extends Entity {
 	private int speed;
@@ -15,7 +16,7 @@ public class Vehicle extends Entity {
 	}
 
 	public void move() {
-		if (direction == 1) {
+		if (direction == Tools.UP) {
 			super.y -= speed;
 		} else {
 			super.y += speed;

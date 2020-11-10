@@ -138,7 +138,7 @@ public class Player extends Entity {
 
 	public boolean isAfk() {
 		long currentTime = System.currentTimeMillis();
-		return currentTime - afkTime >= 10000 && currentTime - afkTime < 100000;
+		return currentTime - afkTime >= 6000 && currentTime - afkTime < 100000;
 	}
 
 	public void setAfkTime() {
@@ -159,5 +159,10 @@ public class Player extends Entity {
 
 	public void setEaten(boolean isEaten) {
 		this.isEaten = isEaten;
+	}
+
+	public boolean isFilmoreIsMove() {
+		long currentTime = System.currentTimeMillis();
+		return currentTime - afkTime >= 5000 && currentTime - afkTime < 10000;
 	}
 }
