@@ -57,6 +57,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
+		//Goes back to page 1
 		back = new JButton();
 		back.setBounds(110, 421, 120, 50);
 		back.addActionListener(this);
@@ -65,6 +66,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
 
+		//Goes to starter menu
 		next = new JButton();
 		next.setBounds(280, 421, 120, 50);
 		next.addActionListener(this);

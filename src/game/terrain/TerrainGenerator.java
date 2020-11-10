@@ -31,19 +31,21 @@ public class TerrainGenerator {
 
 		return list;
 	}
-
+	
 	public void move() {
 		terrains.remove(0);
 		shiftTerrainPos();
 		terrains.add(generateNewTerrain());
 	}
-
+	
+	// Shifts terrain position
 	private void shiftTerrainPos() {
 		for (Terrain terrain : terrains) {
 			terrain.setPos(terrain.getPos() - 1);
 		}
 	}
 
+	// Generates new terrain
 	private Terrain generateNewTerrain() {
 		Terrain lastTerrain = terrains.get(terrains.size() - 1);
 

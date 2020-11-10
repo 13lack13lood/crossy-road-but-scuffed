@@ -76,8 +76,10 @@ public class Tools {
 		return number <= odds;
 	}
 
+	//Randomly generates mcqueen or normal car
 	public static ImageIcon generateCar(int height, int direction) {
 		if (height == 1) {
+			//Returns mcqueen car based on direction
 			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length - 1);
 				return Tools.mcqueenCarsUp[rand];
@@ -86,6 +88,7 @@ public class Tools {
 				return Tools.mcqueenCarsDown[rand];
 			}
 		} else {
+			//Returns normal car based on direction
 			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length - 1);
 				return Tools.carsUp[rand];

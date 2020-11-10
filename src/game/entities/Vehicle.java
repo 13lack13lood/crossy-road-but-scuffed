@@ -14,7 +14,7 @@ public class Vehicle extends Entity {
 		this.speed = speed;
 		this.direction = direction;
 	}
-
+	
 	public void move() {
 		if (direction == Tools.UP) {
 			super.y -= speed;

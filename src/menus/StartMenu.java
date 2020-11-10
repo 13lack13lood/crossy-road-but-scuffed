@@ -31,6 +31,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
+		//Starts the game
 		play = new JButton();
 		play.setBounds(30, 350, 120, 75);
 		play.addActionListener(this);
@@ -39,6 +40,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		play.setBorder(BorderFactory.createLineBorder(Color.black));
 		play.setBackground(Color.white);
 
+		//Goes to instruction menu
 		info = new JButton();
 		info.setBounds(190, 350, 120, 75);
 		info.addActionListener(this);
@@ -47,6 +49,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		info.setBorder(BorderFactory.createLineBorder(Color.black));
 		info.setBackground(Color.white);
 
+		//Exits the program
 		exit = new JButton();
 		exit.setBounds(350, 350, 120, 75);
 		exit.addActionListener(this);
@@ -75,6 +78,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		}
 	}
 
+	//Paints chicken logo
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(chicken.getImage(), 120, 90, 250, 250, null);

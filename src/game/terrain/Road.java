@@ -20,6 +20,7 @@ public class Road extends Terrain {
 		super.draw(g);
 		updateEntityPos();
 
+		// Draws Car
 		for (Entity e : objects) {
 			((Car) e).move();
 			e.draw(g);
