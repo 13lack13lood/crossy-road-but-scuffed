@@ -26,7 +26,11 @@ public class Entity {
 	public void draw(Graphics g) {
 		g.drawImage(image.getImage(), x, y, Frame.SQUARE, height, null);
 	}
-
+	
+	protected void setWidth(int width) {
+		this.width = width;
+	}
+	
 	public int getWidth() {
 		return width;
 	}
