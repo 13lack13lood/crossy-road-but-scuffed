@@ -73,7 +73,7 @@ public class Tools {
 				return Tools.mcqueenCarsDown[rand];
 			}
 		} else {
-			if (direction == DOWN) {
+			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length - 1);
 				return Tools.carsUp[rand];
 			} else {
