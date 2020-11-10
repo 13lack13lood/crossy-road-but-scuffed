@@ -63,6 +63,7 @@ public class Tools {
 		return number <= odds;
 	}
 
+	
 	public static ImageIcon generateCar(int height, int direction) {
 		if (height == 1) {
 			if (direction == UP) {

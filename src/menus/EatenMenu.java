@@ -35,13 +35,13 @@ public class EatenMenu extends JPanel implements ActionListener {
 		repaint();
 		this.setVisible(true);
 	}
-
+	//Goes to start menu
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == next) {
 			Frame.layout.show(Frame.container, "endmenu");
 		}
 	}
-
+	//Paints Filmore eaten screen
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(eaten.getImage(), 10, 0, 500, 250, null);

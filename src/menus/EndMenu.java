@@ -35,6 +35,7 @@ public class EndMenu extends JPanel implements ActionListener {
 		score.setFont(font.deriveFont(40f));
 		score.setForeground(Color.black);
 
+		//Restarts game
 		again.setBounds(10, 350, 150, 75);
 		again.addActionListener(this);
 		again.setText("PLAY AGAIN");
@@ -42,6 +43,7 @@ public class EndMenu extends JPanel implements ActionListener {
 		again.setBorder(BorderFactory.createLineBorder(Color.black));
 		again.setBackground(Color.white);
 
+		//Goes to starter menu
 		main.setBounds(180, 350, 150, 75);
 		main.addActionListener(this);
 		main.setText("MAIN MENU");
@@ -49,6 +51,7 @@ public class EndMenu extends JPanel implements ActionListener {
 		main.setBorder(BorderFactory.createLineBorder(Color.black));
 		main.setBackground(Color.white);
 
+		//Exits program
 		exit.setBounds(350, 350, 150, 75);
 		exit.addActionListener(this);
 		exit.setText("EXIT");
@@ -78,7 +81,7 @@ public class EndMenu extends JPanel implements ActionListener {
 			System.exit(0);
 		}
 	}
-
+	//Paints game over logo
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(gameover.getImage(), 50, -50, 400, 400, null);
