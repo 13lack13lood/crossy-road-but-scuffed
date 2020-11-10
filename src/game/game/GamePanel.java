@@ -114,6 +114,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				Score.resetScore();
 
 			}
+			
+			// Checks if player has moved 
 			if(player.isAfk()) {
 				player.setEaten(true);
 				player.setIsDead(true);

@@ -14,6 +14,7 @@ public class Terrain extends Rectangle {
 	private int width, height;
 	private int pos;
 
+	// Sets 
 	public Terrain(Color color, int pos) {
 		this.color = color;
 		this.pos = pos;
