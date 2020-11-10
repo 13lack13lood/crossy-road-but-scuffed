@@ -86,11 +86,29 @@ public class Player extends Entity {
 
 	public int hasCollided(ArrayList<Entity> objects, boolean isNextTerrain) {
 		for (Entity entity : objects) {
+			if(entity instanceof Log) {
+				Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+				Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
+
+				if(entityHitbox.intersects(playerHitbox)) {
+//					if(y <= entity.getY() + 2  * Frame.HEIGHT) {
+//						y = entity.getY() + 2 * Frame.HEIGHT;
+//					}
+					
+					
+//					setX(entity.getX());
+//					y = entity.getY();
+					
+					return 4;
+				}
+				
+				return 0;
+			}
+			
 			Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
 
 			if (isNextTerrain)
-				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(),
-						entity.getHeight());
+				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(), entity.getHeight());
 
 			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
 

@@ -30,17 +30,30 @@ public class Tools {
 
 	public static final ImageIcon tree = new ImageIcon("res/tree.png");
 	public static final ImageIcon traintrack = new ImageIcon("res/traintrack.png");
-	public static final ImageIcon[] mcqueenCarsUp = { new ImageIcon("res/mcqueen_blue_up.png"),
-			new ImageIcon("res/mcqueen_lime_up.png"), new ImageIcon("res/mcqueen_pink_up.png"),
-			new ImageIcon("res/mcqueen_red_up.png") };
-	public static final ImageIcon[] mcqueenCarsDown = { new ImageIcon("res/mcqueen_blue_down.png"),
-			new ImageIcon("res/mcqueen_lime_down.png"), new ImageIcon("res/mcqueen_pink_down.png"),
-			new ImageIcon("res/mcqueen_red_down.png") };
-	public static final ImageIcon[] carsUp = { new ImageIcon("res/blue_car_up.png"),
-			new ImageIcon("res/orange_car_up.png"), new ImageIcon("res/purple_car_up.png") };
-	public static final ImageIcon[] carsDown = { new ImageIcon("res/blue_car_down.png"),
-			new ImageIcon("res/orange_car_down.png"), new ImageIcon("res/purple_car_down.png") };
-	public static final ImageIcon[] trains = { new ImageIcon("res/train.png"), };
+	public static final ImageIcon log = new ImageIcon("res/log.png");
+	public static final ImageIcon[] mcqueenCarsUp = { 
+			new ImageIcon("res/mcqueen_blue_up.png"),
+			new ImageIcon("res/mcqueen_lime_up.png"), 
+			new ImageIcon("res/mcqueen_pink_up.png"),
+			new ImageIcon("res/mcqueen_red_up.png") 
+	};
+	public static final ImageIcon[] mcqueenCarsDown = { 
+			new ImageIcon("res/mcqueen_blue_down.png"),
+			new ImageIcon("res/mcqueen_lime_down.png"), 
+			new ImageIcon("res/mcqueen_pink_down.png"),
+			new ImageIcon("res/mcqueen_red_down.png") 
+	};
+	public static final ImageIcon[] carsUp = { 
+			new ImageIcon("res/blue_car_up.png"),
+			new ImageIcon("res/orange_car_up.png"), 
+			new ImageIcon("res/purple_car_up.png") 
+	};
+	public static final ImageIcon[] carsDown = { 
+			new ImageIcon("res/blue_car_down.png"),
+			new ImageIcon("res/orange_car_down.png"), 
+			new ImageIcon("res/purple_car_down.png") 
+	};
+	public static final ImageIcon[] trains = { new ImageIcon("res/train.png") };
 
 	public static int generateRandomNumber(int low, int high) {
 		Random random = new Random();
