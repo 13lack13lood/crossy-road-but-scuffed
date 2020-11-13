@@ -156,13 +156,10 @@ public class Player extends Entity {
 			Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
 
 			if (isNextTerrain)
-				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(), entity.getHeight());
+				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(),
+						entity.getHeight());
 
 			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight());
-
-//			if(isNextTerrainWater) {
-//				playerHitbox = new Rectangle(getX(), getY() + 1 , getWidth(), getHeight() - 1);
-//			}
 			
 			if (entityHitbox.intersects(playerHitbox)) {
 				if (isNextTerrain && !entity.isCanKill() && !isNextTerrainWater) {
@@ -221,9 +218,4 @@ public class Player extends Entity {
 	public void setEaten(boolean isEaten) {
 		this.isEaten = isEaten;
 	}
-
-//	public boolean isFilmoreIsMove() {
-//		long currentTime = System.currentTimeMillis();
-//		return currentTime - afkTime >= 5000 && currentTime - afkTime < 10000;
-//	}
 }

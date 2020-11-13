@@ -31,11 +31,13 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 
 		this.setBackground(Tools.WATER);
 
+		// Set button text
 		eatText.setText("No movement for 10s will");
 		eatText2.setText("cause Filmore to munch you");
 		mcqText.setText("Moving forward will");
 		mcqText2.setText("grant you 1 point");
 
+		// Set button locations
 		eatText.setLocation(150, 95);
 		eatText.setSize(500, 100);
 		eatText.setFont(font);
@@ -57,7 +59,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
-		//Goes back to page 1
+		// Page 1 button
 		back = new JButton();
 		back.setBounds(110, 421, 120, 50);
 		back.addActionListener(this);
@@ -66,7 +68,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
 
-		//Goes to starter menu
+		// Starter menu button
 		next = new JButton();
 		next.setBounds(280, 421, 120, 50);
 		next.addActionListener(this);
@@ -88,15 +90,16 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == back) {
+		if (e.getSource() == back) { // Goes back to instruction menu1
 			Frame.layout.show(Frame.container, "instructionmenu1");
 		}
-		if (e.getSource() == next) {
+		if (e.getSource() == next) { // Goes to starter menu
 			Frame.layout.show(Frame.container, "startmenu");
 		}
 	}
 
 	public void paintComponent(Graphics g) {
+		// Draws car icon images
 		super.paintComponent(g);
 		g.drawImage(filmore.getImage(), 45, 125, 65, 65, null);
 		g.drawImage(mcqueen.getImage(), 45, 225, 65, 65, null);

@@ -31,13 +31,13 @@ public class TerrainGenerator {
 
 		return list;
 	}
-	
+
 	public void move() {
 		terrains.remove(0);
 		shiftTerrainPos();
 		terrains.add(generateNewTerrain());
 	}
-	
+
 	// Shifts terrain position
 	private void shiftTerrainPos() {
 		for (Terrain terrain : terrains) {

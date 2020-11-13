@@ -33,28 +33,16 @@ public class Tools {
 	public static final ImageIcon tree = new ImageIcon("res/tree.png");
 	public static final ImageIcon traintrack = new ImageIcon("res/traintrack.png");
 	public static final ImageIcon log = new ImageIcon("res/log.png");
-	public static final ImageIcon[] mcqueenCarsUp = { 
-			new ImageIcon("res/mcqueen_blue_up.png"),
-			new ImageIcon("res/mcqueen_lime_up.png"), 
-			new ImageIcon("res/mcqueen_pink_up.png"),
-			new ImageIcon("res/mcqueen_red_up.png") 
-	};
-	public static final ImageIcon[] mcqueenCarsDown = { 
-			new ImageIcon("res/mcqueen_blue_down.png"),
-			new ImageIcon("res/mcqueen_lime_down.png"), 
-			new ImageIcon("res/mcqueen_pink_down.png"),
-			new ImageIcon("res/mcqueen_red_down.png") 
-	};
-	public static final ImageIcon[] carsUp = { 
-			new ImageIcon("res/blue_car_up.png"),
-			new ImageIcon("res/orange_car_up.png"), 
-			new ImageIcon("res/purple_car_up.png") 
-	};
-	public static final ImageIcon[] carsDown = { 
-			new ImageIcon("res/blue_car_down.png"),
-			new ImageIcon("res/orange_car_down.png"), 
-			new ImageIcon("res/purple_car_down.png") 
-	};
+	public static final ImageIcon[] mcqueenCarsUp = { new ImageIcon("res/mcqueen_blue_up.png"),
+			new ImageIcon("res/mcqueen_lime_up.png"), new ImageIcon("res/mcqueen_pink_up.png"),
+			new ImageIcon("res/mcqueen_red_up.png") };
+	public static final ImageIcon[] mcqueenCarsDown = { new ImageIcon("res/mcqueen_blue_down.png"),
+			new ImageIcon("res/mcqueen_lime_down.png"), new ImageIcon("res/mcqueen_pink_down.png"),
+			new ImageIcon("res/mcqueen_red_down.png") };
+	public static final ImageIcon[] carsUp = { new ImageIcon("res/blue_car_up.png"),
+			new ImageIcon("res/orange_car_up.png"), new ImageIcon("res/purple_car_up.png") };
+	public static final ImageIcon[] carsDown = { new ImageIcon("res/blue_car_down.png"),
+			new ImageIcon("res/orange_car_down.png"), new ImageIcon("res/purple_car_down.png") };
 	public static final ImageIcon[] trains = { new ImageIcon("res/train.png") };
 
 	public static int generateRandomNumber(int low, int high) {
@@ -78,10 +66,10 @@ public class Tools {
 		return number <= odds;
 	}
 
-	//Randomly generates mcqueen or normal car
+	// Randomly generates mcqueen or normal car
 	public static ImageIcon generateCar(int height, int direction) {
 		if (height == 1) {
-			//Returns mcqueen car based on direction
+			// Returns mcqueen car based on direction
 			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.mcqueenCarsUp.length - 1);
 				return Tools.mcqueenCarsUp[rand];
@@ -90,7 +78,7 @@ public class Tools {
 				return Tools.mcqueenCarsDown[rand];
 			}
 		} else {
-			//Returns normal car based on direction
+			// Returns normal car based on direction
 			if (direction == UP) {
 				int rand = Tools.generateRandomNumber(0, Tools.carsUp.length - 1);
 				return Tools.carsUp[rand];

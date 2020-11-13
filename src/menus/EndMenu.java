@@ -12,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import game.game.Score;
 import main.Frame;
 import tools.Tools;
 
@@ -30,12 +29,13 @@ public class EndMenu extends JPanel implements ActionListener {
 		main = new JButton();
 		score = new JLabel();
 
+		// Set score location
 		score.setLocation(175, 240);
 		score.setSize(500, 100);
 		score.setFont(font.deriveFont(40f));
 		score.setForeground(Color.black);
 
-		// Restarts game
+		// Play again button
 		again.setBounds(10, 350, 150, 75);
 		again.addActionListener(this);
 		again.setText("PLAY AGAIN");
@@ -43,7 +43,7 @@ public class EndMenu extends JPanel implements ActionListener {
 		again.setBorder(BorderFactory.createLineBorder(Color.black));
 		again.setBackground(Color.white);
 
-		// Goes to starter menu
+		// Starter menu button
 		main.setBounds(180, 350, 150, 75);
 		main.addActionListener(this);
 		main.setText("MAIN MENU");
@@ -51,7 +51,7 @@ public class EndMenu extends JPanel implements ActionListener {
 		main.setBorder(BorderFactory.createLineBorder(Color.black));
 		main.setBackground(Color.white);
 
-		// Exits program
+		// Exits button
 		exit.setBounds(350, 350, 150, 75);
 		exit.addActionListener(this);
 		exit.setText("EXIT");
@@ -67,17 +67,17 @@ public class EndMenu extends JPanel implements ActionListener {
 		repaint();
 		this.setVisible(true);
 	}
-		
+
 	public void setScore(int intScore) {
 		score.setText("Score: " + intScore);
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == again) {
+		if (e.getSource() == again) { // Restarts game
 			Frame.layout.show(Frame.container, "gamepanel");
-		} else if (e.getSource() == main) {
+		} else if (e.getSource() == main) { // Goes to starter menu 
 			Frame.layout.show(Frame.container, "startmenu");
-		} else if (e.getSource() == exit) {
+		} else if (e.getSource() == exit) { // Exits program
 			System.exit(0);
 		}
 	}
