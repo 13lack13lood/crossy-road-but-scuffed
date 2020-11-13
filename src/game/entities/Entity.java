@@ -4,8 +4,6 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
-import main.Frame;
-
 public class Entity {
 
 	private int width, x;
@@ -26,11 +24,11 @@ public class Entity {
 	public void draw(Graphics g) {
 		g.drawImage(image.getImage(), x, y, width, height, null);
 	}
-	
+
 	protected void setWidth(int width) {
 		this.width = width;
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}

@@ -14,7 +14,6 @@ import game.entities.Filmore;
 import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
-import game.terrain.Water;
 import main.Frame;
 import main.Main;
 import tools.Tools;
@@ -64,7 +63,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == 68) {
 			if (player.isCanMoveForward()) {
 				player.setAfkTime();
-				
+
 				Score.updateScore();
 				terrainGenerator.setIsMoving(true);
 			}
@@ -73,11 +72,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer) {
-			
+
 			// collision detection
 			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
 			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
-			
+
 			if (player.hasCollided(playerTerrain.getObjects(), false) == 1) {
 				player.moveDown(); // undo the movement
 				player.setCanMoveUp(false);
@@ -97,7 +96,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			} else {
 				player.setCanMoveForward(true);
 			}
-			
+
 //			if(player.hasCollided(playerTerrain.getObjects(), false) != 4 && playerTerrain instanceof Water) {
 //				player.setIsDead(true);
 //			}
@@ -106,31 +105,29 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if (player.isDead()) {
 				Main.endMenu.setScore(Score.getScore());
 
-
-				if(player.isEaten()) {
+				if (player.isEaten()) {
 					Frame.layout.show(Frame.container, "eatenmenu");
-					
+
 				} else {
 					Frame.layout.show(Frame.container, "endmenu");
 				}
-				
+
 				player = new Player(Tools.chicken, Frame.SQUARE * 3, 8);
 				terrainGenerator = new TerrainGenerator();
 				Score.resetScore();
 
 			}
-			
-			//check if afk
-			// Checks if player has moved 
-			if(player.isAfk()) {
+
+			// check if afk
+			// Checks if player has moved
+			if (player.isAfk()) {
 				player.setEaten(true);
 				player.setIsDead(true);
 			}
-			
+
 //			if(player.getY() < 0 || player.getY() > Frame.HEIGHT) {
 //				player.setIsDead(true);
 //			}
-
 
 			// move player
 			if (player.canMove()) {
@@ -143,7 +140,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					else if (player.getMoveDirection() == Tools.DOWN)
 						player.moveDown();
 			}
-			
+
 			repaint();
 			requestFocusInWindow();
 		}
@@ -171,11 +168,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 //		} else {
 //			player.draw(g);
 //		}
-		
+
 		player.draw(g);
-		
+
 		Score.drawScore(g);
-		
 
 	}
 

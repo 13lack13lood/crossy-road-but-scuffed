@@ -6,10 +6,11 @@ import tools.Tools;
 public class Car extends Vehicle {
 
 	public Car(int x) {
-		super(null, x, 0, Tools.generateRandomNumber(2, 4), Tools.generateRandomNumber(1, 2), Tools.generateRandomNumber(Tools.UP, Tools.DOWN));
+		super(null, x, 0, Tools.generateRandomNumber(2, 4), Tools.generateRandomNumber(1, 2),
+				Tools.generateRandomNumber(Tools.UP, Tools.DOWN));
 		// Set image
 		image = Tools.generateCar(getHeight(), getDirection());
-		// Set height
+		// Set height 
 		height = image.getImage().getHeight(null);
 
 		if (getDirection() == Tools.UP) {

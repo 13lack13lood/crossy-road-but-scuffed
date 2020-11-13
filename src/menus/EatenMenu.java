@@ -18,12 +18,13 @@ public class EatenMenu extends JPanel implements ActionListener {
 	private ImageIcon eaten, filmore;
 
 	public EatenMenu(ImageIcon eaten, ImageIcon filmore) {
+		
 		this.setBackground(Tools.WATER);
 		this.eaten = eaten;
 		this.filmore = filmore;
 		next = new JButton();
 
-		// Goes to start menu
+		// Next button
 		next.setBounds(190, 421, 120, 50);
 		next.addActionListener(this);
 		next.setText("NEXT");
@@ -36,8 +37,9 @@ public class EatenMenu extends JPanel implements ActionListener {
 		repaint();
 		this.setVisible(true);
 	}
+
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == next) {
+		if (e.getSource() == next) { // Goes to end menu
 			Frame.layout.show(Frame.container, "endmenu");
 		}
 	}

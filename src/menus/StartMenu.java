@@ -25,13 +25,14 @@ public class StartMenu extends JPanel implements ActionListener {
 		this.chicken = chicken;
 		this.setBackground(new Color(105, 206, 236));
 
+		// Set title 
 		title = new JLabel();
 		title.setText("Crossy Road But Scuffed");
 		title.setLocation(20, 10);
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
-		//Starts the game
+		// Starts the game
 		play = new JButton();
 		play.setBounds(30, 350, 120, 75);
 		play.addActionListener(this);
@@ -40,7 +41,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		play.setBorder(BorderFactory.createLineBorder(Color.black));
 		play.setBackground(Color.white);
 
-		//Goes to instruction menu
+		// Instruction menu button
 		info = new JButton();
 		info.setBounds(190, 350, 120, 75);
 		info.addActionListener(this);
@@ -49,7 +50,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		info.setBorder(BorderFactory.createLineBorder(Color.black));
 		info.setBackground(Color.white);
 
-		//Exits the program
+		// Exits the program
 		exit = new JButton();
 		exit.setBounds(350, 350, 120, 75);
 		exit.addActionListener(this);
@@ -69,16 +70,15 @@ public class StartMenu extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == play) {
+		if (e.getSource() == play) { // Goes to game panel
 			Frame.layout.show(Frame.container, "gamepanel");
-		} else if (e.getSource() == info) {
+		} else if (e.getSource() == info) { // Goes to instructionmenu1
 			Frame.layout.show(Frame.container, "instructionmenu1");
-		} else if (e.getSource() == exit) {
+		} else if (e.getSource() == exit) { // Exits the program
 			System.exit(0);
 		}
 	}
-
-	//Paints chicken logo
+	// Paints chicken logo
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(chicken.getImage(), 120, 90, 250, 250, null);

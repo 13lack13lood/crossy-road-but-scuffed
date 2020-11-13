@@ -33,10 +33,12 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 
 		this.setBackground(Tools.WATER);
 
+		// Set button text
 		wText.setText("Press W to move up");
 		sText.setText("Press S to move down");
 		dText.setText("Press D to move right");
 
+		// Set button locations
 		wText.setLocation(175, 100);
 		wText.setSize(500, 100);
 		wText.setFont(font);
@@ -49,12 +51,13 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 		dText.setSize(500, 100);
 		dText.setFont(font);
 
+		// Set title
 		title.setText("Crossy Road Instructions");
 		title.setLocation(20, 10);
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
-		//Goes to starter menu
+		// Starter menu button
 		back = new JButton();
 		back.setBounds(110, 421, 120, 50);
 		back.addActionListener(this);
@@ -63,7 +66,7 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 		back.setBorder(BorderFactory.createLineBorder(Color.black));
 		back.setBackground(Color.white);
 
-		//Goes to page 2
+		// Page 2 button
 		next = new JButton();
 		next.setBounds(280, 421, 120, 50);
 		next.addActionListener(this);
@@ -84,13 +87,14 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == back) {
+		if (e.getSource() == back) { // Goes to starter menu
 			Frame.layout.show(Frame.container, "startmenu");
-		} else if (e.getSource() == next) {
+		} else if (e.getSource() == next) { // Goes to instruction menu 2
 			Frame.layout.show(Frame.container, "instructionmenu2");
 		}
 	}
-	//Paints button icons
+	
+	// Paints button icons
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(w.getImage(), 60, 120, 75, 75, null);
