@@ -22,5 +22,12 @@ public class Log extends Entity {
 			y += speed;
 		}
 	}
+	
+	public int getDirection() {
+		return direction;
+	}
 
+	public int getSpeed() {
+		return speed;
+	}
 }

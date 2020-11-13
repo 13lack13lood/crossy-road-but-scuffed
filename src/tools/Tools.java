@@ -7,6 +7,8 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import main.Frame;
+
 public class Tools {
 	public static final Color GRASS = new Color(181, 236, 95);
 	public static final Color WATER = new Color(105, 206, 236);
@@ -101,5 +103,20 @@ public class Tools {
 
 	public static ImageIcon generateTrain() {
 		return Tools.trains[0];
+	}
+	
+	public static int getClosestSquare(int y, boolean isOccupied) {
+		int low = (y / Frame.SQUARE) * Frame.SQUARE;
+		int high = low + Frame.SQUARE;
+		
+		if(isOccupied) {
+			return high;
+		}
+		
+		if(low + (Frame.SQUARE / 2) >= y) {
+			return low;
+		} else {
+			return high;
+		}
 	}
 }

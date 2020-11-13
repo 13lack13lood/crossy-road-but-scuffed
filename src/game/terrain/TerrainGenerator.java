@@ -50,10 +50,13 @@ public class TerrainGenerator {
 		Terrain lastTerrain = terrains.get(terrains.size() - 1);
 
 		ArrayList<Terrain> terrains = new ArrayList<Terrain>(
-				Arrays.asList(new Grass(Tools.GRASS, Frame.WIDTH / Frame.SQUARE - 1),
-						new Water(Tools.WATER, Frame.WIDTH / Frame.SQUARE - 1),
-						new Road(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1),
-						new TrainTrack(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1)));
+				Arrays.asList(
+						new Grass(Tools.GRASS, Frame.WIDTH / Frame.SQUARE - 1),
+						new Water(Tools.WATER, Frame.WIDTH / Frame.SQUARE - 1)//,dddd
+//						new Road(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1),
+//						new TrainTrack(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1)
+				)
+		);
 
 		if (lastTerrain instanceof Grass) {
 			if (Tools.oddsOfSame(50)) {

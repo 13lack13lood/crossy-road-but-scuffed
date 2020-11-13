@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import game.entities.Entity;
 import game.entities.Filmore;
 import game.entities.Player;
 import game.terrain.Terrain;
@@ -46,16 +47,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 	}
 
-	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == 87) {
-			if (player.canMoveUp()) {
+	public void keyReleased(KeyEvent e) {		
+		if(e.getKeyCode() == 87) {
+			if(player.isOnLog()) {
+				player.setRequestMoveUp(true);
+			} else if(player.canMoveUp()) {
 				player.moveUp();
 				player.setIsMoving(true);
 			}
 		}
 
-		if (e.getKeyCode() == 83) {
-			if (player.canMoveDown()) {
+		if(e.getKeyCode() == 83) {
+			if(player.isOnLog()) {
+				player.setRequestMoveDown(true);
+			} else if (player.canMoveDown()) {
 				player.moveDown();
 				player.setIsMoving(true);
 			}
@@ -63,6 +68,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (e.getKeyCode() == 68) {
 			if (player.isCanMoveForward()) {
+				player.setIsOnLog(false);
 				player.setAfkTime();
 				
 				Score.updateScore();
@@ -78,38 +84,49 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
 			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
 			
-			if (player.hasCollided(playerTerrain.getObjects(), false) == 1) {
-				player.moveDown(); // undo the movement
-				player.setCanMoveUp(false);
+			if(playerTerrain instanceof Water) {
+				player.moveOnLog(playerTerrain.getObjects());
 			} else {
-				player.setCanMoveUp(true);
-			}
+				player.setIsOnLog(false);
+				
+				if(!player.isMoving()) {
+					for(Entity entity : playerTerrain.getObjects()) {
+						if(Tools.getClosestSquare(player.getY(), false) == entity.getY()) {
+							player.setY(Tools.getClosestSquare(player.getY(), true));
+						} else {
+							player.setY(Tools.getClosestSquare(player.getY(), false));
+						}
+					}
+				}
+				
+				if (player.hasCollided(playerTerrain.getObjects(), false, nextTerrain instanceof Water) == 1) {
+					player.moveDown(); // undo the movement
+					player.setCanMoveUp(false);
+				} else {
+					player.setCanMoveUp(true);
+				}
 
-			if (player.hasCollided(playerTerrain.getObjects(), false) == 2) {
-				player.moveUp(); // undo the movement
-				player.setCanMoveDown(false);
-			} else {
-				player.setCanMoveDown(true);
+				if (player.hasCollided(playerTerrain.getObjects(), false, nextTerrain instanceof Water) == 2) {
+					player.moveUp(); // undo the movement
+					player.setCanMoveDown(false);
+				} else {
+					player.setCanMoveDown(true);
+				}
 			}
-
-			if (player.hasCollided(nextTerrain.getObjects(), true) == 3) {
+			
+			if (player.hasCollided(nextTerrain.getObjects(), true, nextTerrain instanceof Water) == 3) {
 				player.setCanMoveForward(false);
 			} else {
 				player.setCanMoveForward(true);
 			}
-			
-//			if(player.hasCollided(playerTerrain.getObjects(), false) != 4 && playerTerrain instanceof Water) {
-//				player.setIsDead(true);
-//			}
+
 
 			// check if the player has died
 			if (player.isDead()) {
 				Main.endMenu.setScore(Score.getScore());
 
-
 				if(player.isEaten()) {
 					Frame.layout.show(Frame.container, "eatenmenu");
-					
 				} else {
 					Frame.layout.show(Frame.container, "endmenu");
 				}
@@ -121,16 +138,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 			
 			//check if afk
-			// Checks if player has moved 
 			if(player.isAfk()) {
 				player.setEaten(true);
 				player.setIsDead(true);
 			}
 			
-//			if(player.getY() < 0 || player.getY() > Frame.HEIGHT) {
-//				player.setIsDead(true);
-//			}
+			if(player.getY() < 0 || player.getY() + Frame.SQUARE/ 2 > Frame.HEIGHT) {
+				player.setIsDead(true);
+			}
 
+			if(player.isOnLog()) {
+				
+			}
 
 			// move player
 			if (player.canMove()) {
