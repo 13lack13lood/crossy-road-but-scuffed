@@ -11,13 +11,16 @@ import tools.Tools;
 public class TrainTrack extends Terrain {
 
 	public TrainTrack(Color color, int pos) {
-		super(color, pos);
-		Train train = new Train(getPos() * Frame.SQUARE);
+		super(color, pos); //call parent class
+		Train train = new Train(getPos() * Frame.SQUARE);  //create a new train when a train track is created
 		objects.add(train);
 	}
-
+	
+	//method to draw the train and the train track
 	public void draw(Graphics g) {
 		super.draw(g);
+		
+		//draw the train tracks
 		for (int i = 0; i < Frame.HEIGHT; i += Frame.SQUARE) {
 			g.drawImage(Tools.traintrack.getImage(), getPos() * Frame.SQUARE, i, null);
 		}
@@ -28,10 +31,11 @@ public class TrainTrack extends Terrain {
 		for (Entity e : objects) {
 			((Train) e).move();
 			e.draw(g);
-			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT
-					|| e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
-				objects.remove(0);
-				objects.add(new Train(getPos() * Frame.SQUARE));
+			
+			//checks if train is out of the frame
+			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT || e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
+				objects.remove(0); //removes the train from the ArrayList
+				objects.add(new Train(getPos() * Frame.SQUARE)); //creates a new train
 			}
 		}
 	}

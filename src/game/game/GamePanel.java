@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	private TerrainGenerator terrainGenerator;
 
 	public GamePanel(Player player, TerrainGenerator terrainGenerator) {
-		this.setBackground(Color.white); //set the background to white
+		setBackground(Color.white); //set the background to white
 		this.player = player;
 		this.terrainGenerator = terrainGenerator;
 

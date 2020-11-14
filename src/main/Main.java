@@ -12,21 +12,24 @@ import tools.Tools;
 
 public class Main {
 
-	public static EndMenu endMenu = new EndMenu(Tools.gameOver, Tools.font);
+	public static EndMenu endMenu = new EndMenu(Tools.gameOver, Tools.font); //end menu has to be edited in order to show the score
 
 	public static void main(String[] args) {
+		//create a new display
 		Frame frame = new Frame();
 
+		//MENUS
 		StartMenu startMenu = new StartMenu(Tools.chicken, Tools.font);
 		InstructionMenu1 instructionMenu1 = new InstructionMenu1(Tools.W, Tools.S, Tools.D, Tools.font.deriveFont(25f));
-		InstructionMenu2 instructionMenu2 = new InstructionMenu2(Tools.filmore, Tools.wideMcqueen,
-				Tools.font.deriveFont(25f));
+		InstructionMenu2 instructionMenu2 = new InstructionMenu2(Tools.filmore, Tools.wideMcqueen, Tools.font.deriveFont(25f));
 		EatenMenu eatenMenu = new EatenMenu(Tools.eaten, Tools.filmore);
 
+		//GAME OBJECTS
 		Player player = new Player(Tools.chicken, Frame.SQUARE * 3, 8);
 		TerrainGenerator terrainGenerator = new TerrainGenerator();
-		GamePanel gamePanel = new GamePanel(player, terrainGenerator);
+		GamePanel gamePanel = new GamePanel(player, terrainGenerator); //JPanel for game
 
+		//add all the panels to the game
 		Frame.container.add(startMenu, "startmenu");
 		Frame.container.add(instructionMenu1, "instructionmenu1");
 		Frame.container.add(instructionMenu2, "instructionmenu2");

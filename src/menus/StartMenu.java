@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import main.Frame;
 
 public class StartMenu extends JPanel implements ActionListener {
-
+	//VARIABLES
 	private JButton play, info, exit;
 	private ImageIcon chicken;
 	private JLabel title;
@@ -32,7 +32,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		title.setSize(500, 100);
 		title.setFont(font.deriveFont(38f));
 
-		// Starts the game
+		// Button that starts the game
 		play = new JButton();
 		play.setBounds(30, 350, 120, 75);
 		play.addActionListener(this);
@@ -50,7 +50,7 @@ public class StartMenu extends JPanel implements ActionListener {
 		info.setBorder(BorderFactory.createLineBorder(Color.black));
 		info.setBackground(Color.white);
 
-		// Exits the program
+		// Button that exits the program
 		exit = new JButton();
 		exit.setBounds(350, 350, 120, 75);
 		exit.addActionListener(this);
@@ -72,13 +72,14 @@ public class StartMenu extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == play) { // Goes to game panel
 			Frame.layout.show(Frame.container, "gamepanel");
-		} else if (e.getSource() == info) { // Goes to instructionmenu1
+		} else if (e.getSource() == info) { // Goes to the first page of the instructions menu
 			Frame.layout.show(Frame.container, "instructionmenu1");
 		} else if (e.getSource() == exit) { // Exits the program
 			System.exit(0);
 		}
 	}
-	// Paints chicken logo
+	
+	// Paints chicken image
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(chicken.getImage(), 120, 90, 250, 250, null);

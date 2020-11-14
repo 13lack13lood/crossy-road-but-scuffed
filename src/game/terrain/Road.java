@@ -11,11 +11,12 @@ import tools.Tools;
 public class Road extends Terrain {
 
 	public Road(Color color, int pos) {
-		super(color, pos);
-		Car car = new Car(getPos() * Frame.SQUARE);
+		super(color, pos); //call parent constructor
+		Car car = new Car(getPos() * Frame.SQUARE); //create a car when the road is created
 		objects.add(car);
 	}
 
+	//method to draw the road
 	public void draw(Graphics g) {
 		super.draw(g);
 		updateEntityPos();
@@ -25,9 +26,10 @@ public class Road extends Terrain {
 			((Car) e).move();
 			e.draw(g);
 
+			//checks if the car is outside the frame
 			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT || e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
-				objects.remove(0);
-				objects.add(new Car(getPos() * Frame.SQUARE));
+				objects.remove(0); //removes the car
+				objects.add(new Car(getPos() * Frame.SQUARE)); //creates a new car
 			}
 		}
 	}

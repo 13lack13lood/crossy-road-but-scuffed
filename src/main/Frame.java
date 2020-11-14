@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 import tools.Tools;
 
 public class Frame extends JFrame {
-
-	public static final int WIDTH = 512, HEIGHT = 512, SQUARE = 64;
+	//VARIABLES
+	public static final int WIDTH = 512, HEIGHT = 512, SQUARE = 64; //width, height, and size of a square of the screen
 
 	public static CardLayout layout;
 	public static Container container;
@@ -21,13 +21,13 @@ public class Frame extends JFrame {
 		layout = new CardLayout();
 		container.setLayout(layout);
 
-		icon = Tools.icon;
-		this.setIconImage(icon.getImage());
+		icon = Tools.icon; 
+		setIconImage(icon.getImage()); //set the icon of the frame
 
-		this.setTitle("Crossy Road But Scuffed");
-		this.setSize(WIDTH + 14, HEIGHT + 30 + 7);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		setTitle("Crossy Road But Scuffed");
+		setSize(WIDTH + 14, HEIGHT + 30 + 7); //the size of the insets is added to the width and height when setting the size so the actual display is the correct size
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false); //frame should not be re-sizable
 	}
 
 }

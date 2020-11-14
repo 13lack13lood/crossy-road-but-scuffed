@@ -14,11 +14,12 @@ public class Score {
 		score++;
 	}
 
+	// Gets the score
 	public static int getScore() {
 		return score;
 	}
 
-	// Sets score to 0
+	// Resets the score
 	public static void resetScore() {
 		score = 0;
 	}
