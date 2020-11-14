@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import game.entities.Entity;
-import game.entities.Filmore;
 import game.entities.Player;
 import game.terrain.Terrain;
 import game.terrain.TerrainGenerator;
+import game.terrain.Water;
 import main.Frame;
 import main.Main;
 import tools.Tools;
@@ -25,13 +25,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	private Timer timer;
 	private Player player;
 	private TerrainGenerator terrainGenerator;
-	private Filmore filmore;
 
-	public GamePanel(Player player, TerrainGenerator terrainGenerator, Filmore filmore) {
+	public GamePanel(Player player, TerrainGenerator terrainGenerator) {
 		this.setBackground(Color.white); //set the background to white
 		this.player = player;
 		this.terrainGenerator = terrainGenerator;
-		this.filmore = filmore;
 
 		addKeyListener(this); //allow this panel to listen for keys
 		setFocusable(true); //allow this panel to be focused
@@ -69,7 +67,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		//check if D key is pressed
 		if (e.getKeyCode() == 68) {
 			if (player.isCanMoveForward()) {
-				player.setIsOnLog(false); //reset the onLog boolean everytime the player moves forward
+				player.setIsOnLog(false); //reset the onLog boolean every time the player moves forward
 				player.setAfkTime(); //reset the timer to check if the player is not moving
 
 				Score.updateScore(); //update the score
@@ -110,7 +108,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 					player.setCanMoveUp(true);
 				}
 
-				//cehck if player collides with something below it
+				//check if player collides with something below it
 				if (player.hasCollided(playerTerrain.getObjects(), false, nextTerrain instanceof Water) == 2) {
 					player.moveUp(); // undo the movement
 					player.setCanMoveDown(false); //don't allow the player to move if it collides with something

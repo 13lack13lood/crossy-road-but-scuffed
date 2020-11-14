@@ -1,6 +1,5 @@
 package main;
 
-import game.entities.Filmore;
 import game.entities.Player;
 import game.game.GamePanel;
 import game.terrain.TerrainGenerator;
@@ -26,8 +25,7 @@ public class Main {
 
 		Player player = new Player(Tools.chicken, Frame.SQUARE * 3, 8);
 		TerrainGenerator terrainGenerator = new TerrainGenerator();
-		Filmore filmore = new Filmore(Tools.filmore);
-		GamePanel gamePanel = new GamePanel(player, terrainGenerator, filmore);
+		GamePanel gamePanel = new GamePanel(player, terrainGenerator);
 
 		Frame.container.add(startMenu, "startmenu");
 		Frame.container.add(instructionMenu1, "instructionmenu1");

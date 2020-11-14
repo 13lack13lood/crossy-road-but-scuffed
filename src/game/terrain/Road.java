@@ -25,8 +25,7 @@ public class Road extends Terrain {
 			((Car) e).move();
 			e.draw(g);
 
-			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT
-					|| e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
+			if (e.getY() - Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) > Frame.HEIGHT || e.getY() + e.getHeight() + Tools.generateRandomNumber(e.getHeight() * 3, Frame.HEIGHT) < 0) {
 				objects.remove(0);
 				objects.add(new Car(getPos() * Frame.SQUARE));
 			}

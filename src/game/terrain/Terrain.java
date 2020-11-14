@@ -9,12 +9,12 @@ import game.entities.Entity;
 import main.Frame;
 
 public class Terrain extends Rectangle {
-	protected ArrayList<Entity> objects;
+	//VARIABLES
+	protected ArrayList<Entity> objects; //child classes can access the ArrayList
 	private Color color;
 	private int width, height;
 	private int pos;
 
-	// Sets
 	public Terrain(Color color, int pos) {
 		this.color = color;
 		this.pos = pos;
@@ -23,26 +23,32 @@ public class Terrain extends Rectangle {
 		objects = new ArrayList<Entity>();
 	}
 
-	public int getPos() {
-		return pos;
-	}
-
-	public void setPos(int pos) {
-		this.pos = pos;
-	}
-
-	public ArrayList<Entity> getObjects() {
-		return objects;
-	}
-
-	protected void updateEntityPos() {
-		for (Entity e : objects) {
+	//method to update the position of the entities
+	protected void updateEntityPos() { //only child classes have access to this method
+		for (Entity e : objects) { //go through each entity
 			e.setX(pos * Frame.SQUARE);
 		}
 	}
 
+	//method to draw the terrain
 	public void draw(Graphics g) {
 		g.setColor(color);
 		g.fillRect(pos * Frame.SQUARE, 0, width, height);
+	}
+	
+	//GETTERS AND SETTERS
+	
+	//GETTERS
+	public ArrayList<Entity> getObjects() {
+		return objects;
+	}
+	
+	public int getPos() {
+		return pos;
+	}
+	
+	//SETTERS
+	public void setPos(int pos) {
+		this.pos = pos;
 	}
 }
