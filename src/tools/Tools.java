@@ -67,7 +67,7 @@ public class Tools {
 		Random random = new Random();
 		return random.nextInt(high + 1) + low;
 	}
-
+	
 	//method to generate a list of random numbers between 2 numbers inclusive
 	public static ArrayList<Integer> generateRandomNumbers(int low, int high, int size) {
 		ArrayList<Integer> list = new ArrayList<Integer>();

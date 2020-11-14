@@ -21,7 +21,6 @@ public class StartMenu extends JPanel implements ActionListener {
 	private JLabel title;
 
 	public StartMenu(ImageIcon chicken, Font font) {
-
 		this.chicken = chicken;
 		this.setBackground(new Color(105, 206, 236));
 
@@ -60,10 +59,13 @@ public class StartMenu extends JPanel implements ActionListener {
 		exit.setBackground(Color.white);
 
 		this.setLayout(null);
+		
+		//add all the components
 		this.add(play);
 		this.add(info);
 		this.add(exit);
 		this.add(title);
+		
 		repaint();
 
 		this.setVisible(true);

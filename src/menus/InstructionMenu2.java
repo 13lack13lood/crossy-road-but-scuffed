@@ -16,6 +16,7 @@ import main.Frame;
 import tools.Tools;
 
 public class InstructionMenu2 extends JPanel implements ActionListener {
+	//VARIABLES
 	private JLabel title, eatText, eatText2, mcqText, mcqText2;
 	private JButton back, next;
 	private ImageIcon mcqueen, filmore;
@@ -23,6 +24,8 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 	public InstructionMenu2(ImageIcon filmore, ImageIcon mcqueen, Font font) {
 		this.filmore = filmore;
 		this.mcqueen = mcqueen;
+		
+		//create new labels
 		title = new JLabel();
 		eatText = new JLabel();
 		eatText2 = new JLabel();
@@ -77,6 +80,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
 
+		//add all the components
 		this.add(eatText);
 		this.add(eatText2);
 		this.add(mcqText);
@@ -84,8 +88,11 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 		this.add(back);
 		this.add(title);
 		this.add(next);
+		
 		this.setLayout(null);
+		
 		repaint();
+		
 		this.setVisible(true);
 	}
 
@@ -101,7 +108,7 @@ public class InstructionMenu2 extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g) {
 		// Draws car icon images
 		super.paintComponent(g);
-		g.drawImage(filmore.getImage(), 45, 125, 65, 65, null);
-		g.drawImage(mcqueen.getImage(), 45, 225, 65, 65, null);
+		g.drawImage(filmore.getImage(), 45, 125, 65, 65, null); //draw the filmore image
+		g.drawImage(mcqueen.getImage(), 45, 225, 65, 65, null); //draw the mcqueen image
 	}
 }

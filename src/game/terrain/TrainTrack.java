@@ -29,6 +29,7 @@ public class TrainTrack extends Terrain {
 
 		// Draws train
 		for (Entity e : objects) {
+			//move and draw the train
 			((Train) e).move();
 			e.draw(g);
 			

@@ -6,15 +6,17 @@ import main.Frame;
 import tools.Tools;
 
 public class Vehicle extends Entity {
+	//VARIABLES
 	private int speed;
 	private int direction;
 
 	public Vehicle(ImageIcon image, int x, int y, int speed, int height, int direction) {
-		super(image, height, Frame.SQUARE, x, y, true);
+		super(image, height, Frame.SQUARE, x, y, true); //call parent constructor
 		this.speed = speed;
 		this.direction = direction;
 	}
 
+	//method to move the vehicle
 	public void move() {
 		if (direction == Tools.UP) {
 			super.y -= speed;
@@ -23,6 +25,9 @@ public class Vehicle extends Entity {
 		}
 	}
 
+	//GETTERS AND SETTERS
+	
+	//GETTERS
 	public int getSpeed() {
 		return speed;
 	}
@@ -31,6 +36,7 @@ public class Vehicle extends Entity {
 		return direction;
 	}
 
+	//SETTERS
 	public void setDirection(int direction) {
 		this.direction = direction;
 	}

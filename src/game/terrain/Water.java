@@ -25,8 +25,9 @@ public class Water extends Terrain {
 			//move and draw the log
 			((Log) e).move();
 			e.draw(g);
+			
 			//remove the log if it is off the screen
-			if (e.getY() > Frame.HEIGHT || e.getY() + e.getHeight() + 1 < 0) {
+			if (e.getY() > Frame.HEIGHT || e.getY() + e.getHeight() + 10 < 0) {
 				objects.remove(0);
 				objects.add(new Log(getPos() * Frame.SQUARE, Tools.generateRandomNumber(0, 1) * Frame.HEIGHT));
 			}

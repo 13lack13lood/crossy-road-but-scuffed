@@ -11,12 +11,12 @@ public class Log extends Entity {
 	public Log(int x, int y) {
 		super(Tools.log, 3 * Frame.SQUARE, Frame.SQUARE, x, y, false); //call parent constructor
 		
-		if(y == 0) {
+		//reposition the y value if it is 0
+		if(getY() == 0) {
 			setY(-getHeight());
 		}
 		
-//		y = (y == 0) ? -getHeight() : y; //change shift the y value down if the log is generated from the top
-		direction = (y == -getHeight()) ? Tools.DOWN : Tools.UP; //set the direction based on where the log is generated
+		direction = (y == Frame.HEIGHT) ? Tools.UP : Tools.DOWN; //set the direction based on where the log is generated
 		speed = 2;
 	}
 

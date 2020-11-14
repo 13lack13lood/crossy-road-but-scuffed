@@ -18,10 +18,10 @@ public class EatenMenu extends JPanel implements ActionListener {
 	private ImageIcon eaten, filmore;
 
 	public EatenMenu(ImageIcon eaten, ImageIcon filmore) {
-		
 		this.setBackground(Tools.WATER);
 		this.eaten = eaten;
 		this.filmore = filmore;
+		
 		next = new JButton();
 
 		// Next button
@@ -32,9 +32,13 @@ public class EatenMenu extends JPanel implements ActionListener {
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
 
+		//add all the components
 		this.add(next);
+		
 		this.setLayout(null);
+		
 		repaint();
+		
 		this.setVisible(true);
 	}
 
@@ -46,7 +50,7 @@ public class EatenMenu extends JPanel implements ActionListener {
 	// Paints Filmore eaten screen
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(eaten.getImage(), 10, 0, 500, 250, null);
-		g.drawImage(filmore.getImage(), 16, 250, (int) (192 * 2.5), (int) (64 * 2.5), null);
+		g.drawImage(eaten.getImage(), 10, 0, 500, 250, null); //draws the text
+		g.drawImage(filmore.getImage(), 16, 250, (int) (192 * 2.5), (int) (64 * 2.5), null); //draws the filmore image
 	}
 }

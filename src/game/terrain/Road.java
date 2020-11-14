@@ -23,6 +23,7 @@ public class Road extends Terrain {
 
 		// Draws Car
 		for (Entity e : objects) {
+			//move and draw the car
 			((Car) e).move();
 			e.draw(g);
 

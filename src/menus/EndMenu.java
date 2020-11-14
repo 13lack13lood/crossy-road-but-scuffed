@@ -58,13 +58,17 @@ public class EndMenu extends JPanel implements ActionListener {
 		exit.setFont(font);
 		exit.setBorder(BorderFactory.createLineBorder(Color.black));
 		exit.setBackground(Color.white);
-
+		
+		//add all the components
 		this.add(again);
 		this.add(exit);
 		this.add(main);
 		this.add(score);
+		
 		this.setLayout(null);
+		
 		repaint();
+		
 		this.setVisible(true);
 	}
 

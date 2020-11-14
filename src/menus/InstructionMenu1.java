@@ -75,14 +75,18 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 		next.setBorder(BorderFactory.createLineBorder(Color.black));
 		next.setBackground(Color.white);
 
+		//add all the components
 		this.add(wText);
 		this.add(sText);
 		this.add(dText);
 		this.add(back);
 		this.add(next);
 		this.add(title);
+		
 		this.setLayout(null);
+		
 		repaint();
+		
 		this.setVisible(true);
 	}
 
@@ -97,8 +101,8 @@ public class InstructionMenu1 extends JPanel implements ActionListener {
 	// Paints button icons
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(w.getImage(), 60, 120, 75, 75, null);
-		g.drawImage(s.getImage(), 60, 220, 75, 75, null);
-		g.drawImage(d.getImage(), 60, 320, 75, 75, null);
+		g.drawImage(w.getImage(), 60, 120, 75, 75, null); //draws W image
+		g.drawImage(s.getImage(), 60, 220, 75, 75, null); //draws S image
+		g.drawImage(d.getImage(), 60, 320, 75, 75, null); //draws D image
 	}
 }

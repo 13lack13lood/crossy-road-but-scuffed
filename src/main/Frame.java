@@ -24,7 +24,7 @@ public class Frame extends JFrame {
 		icon = Tools.icon; 
 		setIconImage(icon.getImage()); //set the icon of the frame
 
-		setTitle("Crossy Road But Scuffed");
+		setTitle("Crossy Road But Scuffed"); //set the title of the display
 		setSize(WIDTH + 14, HEIGHT + 30 + 7); //the size of the insets is added to the width and height when setting the size so the actual display is the correct size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false); //frame should not be re-sizable
