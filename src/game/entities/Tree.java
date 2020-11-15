@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for the trees
+ */
+
 package game.entities;
 
 import javax.swing.ImageIcon;

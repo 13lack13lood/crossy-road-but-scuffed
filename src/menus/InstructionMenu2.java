@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for the second page of the instructions menu
+ */
+
 package menus;
 
 import java.awt.Color;

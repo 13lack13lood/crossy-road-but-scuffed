@@ -1,3 +1,11 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This game is a 2D version of the popular mobile game Crossy Road
+ * This is the main class
+ */
+
 package main;
 
 import game.entities.Player;

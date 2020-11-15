@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the tools class
+ */
+
 package tools;
 
 import java.awt.Color;
@@ -10,7 +17,7 @@ import javax.swing.ImageIcon;
 import main.Frame;
 
 public class Tools {
-	//Colours for the terrains and background
+	//Colors for the terrains and background
 	public static final Color GRASS = new Color(181, 236, 95);
 	public static final Color WATER = new Color(105, 206, 236);
 	public static final Color ROAD = new Color(73, 79, 95);

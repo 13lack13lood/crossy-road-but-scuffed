@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for the game panel
+ */
+
 package game.game;
 
 import java.awt.Color;
@@ -79,8 +86,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == timer) {
 			// collision detection
-			Terrain playerTerrain = terrainGenerator.getTerrains().get(3);
-			Terrain nextTerrain = terrainGenerator.getTerrains().get(4);
+			Terrain playerTerrain = terrainGenerator.getTerrains().get(3); //the terrain the player is currently on
+			Terrain nextTerrain = terrainGenerator.getTerrains().get(4); //the terrain to the right of the player
 			
 			//check if the player is on water
 			if(playerTerrain instanceof Water) {

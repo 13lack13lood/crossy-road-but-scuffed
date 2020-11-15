@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for generating the terrain
+ */
+
 package game.terrain;
 
 import java.awt.Graphics;
@@ -10,11 +17,12 @@ import tools.Tools;
 
 public class TerrainGenerator {
 	//VARIABLES
-	private ArrayList<Terrain> terrains;
-	private boolean isMoving;
+	//terrains are stored in an ArrayList so the first terrain can be removed and a new terrain can be added at the end
+	private ArrayList<Terrain> terrains; 
+	private boolean isMoving; //variable to know if the terrains will be shift
 
 	public TerrainGenerator() {
-		terrains = generateFreshTerrain();
+		terrains = generateFreshTerrain(); //generate the starting terrain when the game starts
 		isMoving = false;
 	}
 

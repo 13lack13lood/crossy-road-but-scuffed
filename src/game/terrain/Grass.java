@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for the grass terrain
+ */
+
 package game.terrain;
 
 import java.awt.Color;
@@ -33,7 +40,7 @@ public class Grass extends Terrain {
 	public Grass(ArrayList<Integer> treePos, Color color, int pos) {
 		super(color, pos); //call parent constructor
 
-		//draw the trees in the specified location
+		//create and all the trees to the objects ArrayList
 		for (int i : treePos) {
 			objects.add(new Tree(new ImageIcon("res/tree.png"), getPos() * Frame.SQUARE, i * Frame.SQUARE));
 		}

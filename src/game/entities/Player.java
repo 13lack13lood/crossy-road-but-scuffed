@@ -1,3 +1,10 @@
+/* Harry Zhu and Justin Lee
+ * ICS3U7 Ms. Strelkovska
+ * November 14, 2020
+ * Final project
+ * This is the class for the player
+ */
+
 package game.entities;
 
 import java.awt.Rectangle;
@@ -19,12 +26,12 @@ public class Player extends Entity {
 	private boolean isDead; //boolean to know if the player is dead
 	private boolean isEaten; //boolean to know if the player is eaten (not moving for 10 seconds)
 	private long afkTime; //long to store the system time
-	private boolean onLog;
-	private boolean requestMoveDown;
-	private boolean requestMoveUp;
+	private boolean onLog; //boolean to know if the player is on a log
+	private boolean requestMoveDown; //boolean to know if the player requests to move down while on a log
+	private boolean requestMoveUp; //boolean to know if the player requests to move up while on a log
 
 	public Player(ImageIcon playerIcon, int y, int dy) {
-		super(playerIcon, Frame.SQUARE, Frame.SQUARE, Frame.SQUARE * 3, y, false);
+		super(playerIcon, Frame.SQUARE, Frame.SQUARE, Frame.SQUARE * 3, y, false); //call parent constructor
 		this.y = y;
 		this.dy = dy;
 		canMoveUp = true;
@@ -52,7 +59,10 @@ public class Player extends Entity {
 		return y % Frame.SQUARE == 0;
 	}
 	
-	//check if the player has not moved forward for 10 seconds
+	/* method to check if the player has not moved forward for 10 seconds
+	 *  - gets the current system time
+	 *  - returns whether the afkTime (the time stamp of when the player moved forward) is greater than 10 seconds (10,000 milliseconds)
+	 */
 	public boolean isAfk() {
 		long currentTime = System.currentTimeMillis();
 		return currentTime - afkTime >= 10000 && currentTime - afkTime < 100000;
@@ -140,30 +150,31 @@ public class Player extends Entity {
 			Rectangle entityHitbox = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight()); //entity rectangle
 			Rectangle playerHitbox = new Rectangle(getX(), getY(), getWidth(), getHeight()); //player rectangle
 			
-			if(isNextTerrain) {
+			//check if the terrain given is the next terrain
+			if(isNextTerrain) { //shift all the entities one square to the right in order to see if the player collides with it
 				entityHitbox = new Rectangle(entity.getX() - Frame.SQUARE, entity.getY(), entity.getWidth(), entity.getHeight());
 			}
 			
 			//allows the player to go between trees after moving on a log
 			if(onLog) {
-				playerHitbox = new Rectangle(getX(), getY() - 16, getWidth(), getHeight() - 16); //makes the player rectangle smaller so it is easier for the player to move to the next terrain between trees
+				playerHitbox = new Rectangle(getX(), getY() - 15, getWidth(), getHeight() - 15); //makes the player rectangle smaller so it is easier for the player to move to the next terrain between trees
 			}
 			
 			//checks for collision
 			if(entityHitbox.intersects(playerHitbox)) {
 				if(isNextTerrain && !entity.isCanKill() && !isNextTerrainWater) {
-					return 3; //returns 3 if the entity does not kill the player
+					return 3; //returns 3 if the entity does not kill the player and is the next terrain but not on water
 				} else {
 					if(!isNextTerrain && entity.isCanKill()) { //player collided with an entity that can kill it
 						isDead = true; //player is dead
 						return 0; //default return value
 					} else {
 						if(entity.getY() < getY()) { //check if the player collided with an entity above
-							return 1;
+							return 1; //entity is above
 						}
 
 						if(entity.getY() > getY()) { //check if the player collided with an entity below
-							return 2;
+							return 2; //entity is below
 						}
 					}
 				}
@@ -171,7 +182,7 @@ public class Player extends Entity {
 			}
 		}
 
-		return 0;
+		return 0; //default return value if something goes wrong
 	}
 	
 	//ALL GETTERS AND SETTERS
