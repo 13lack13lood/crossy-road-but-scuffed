@@ -82,9 +82,9 @@ public class TerrainGenerator {
 		ArrayList<Terrain> terrains = new ArrayList<Terrain>(
 				Arrays.asList(
 						new Grass(Tools.GRASS, Frame.WIDTH / Frame.SQUARE - 1),
-						new Water(Tools.WATER, Frame.WIDTH / Frame.SQUARE - 1)//,
-//						new Road(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1),
-//						new TrainTrack(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1)
+						new Water(Tools.WATER, Frame.WIDTH / Frame.SQUARE - 1),
+						new Road(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1),
+						new TrainTrack(Tools.ROAD, Frame.WIDTH / Frame.SQUARE - 1)
 				)
 		);
 

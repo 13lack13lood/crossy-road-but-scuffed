@@ -20,11 +20,11 @@ public class Log extends Entity {
 		
 		//reposition the y value if it is 0
 		if(getY() == 0) {
-			setY(-getHeight());
+			setY(-getHeight() - Tools.generateRandomNumber(0, getHeight() + (getHeight() / 4))); //randomize the y value
 		}
 		
 		direction = (y == Frame.HEIGHT) ? Tools.UP : Tools.DOWN; //set the direction based on where the log is generated
-		speed = 1;
+		speed = 2;
 	}
 
 	//method to move the log
