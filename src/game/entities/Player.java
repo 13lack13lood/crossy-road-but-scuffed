@@ -92,15 +92,26 @@ public class Player extends Entity {
 					
 					//put the player on the appropriate position on the log
 					//there are three positions on the log
-					if(y > e.getY() && y < e.getY() + Frame.SQUARE) { //check for the first position
+					if(y >= e.getY() && y < e.getY() + Frame.SQUARE) { //check for the first position
 						y = e.getY(); //set the player's y value
-					} else if(y > e.getY() + 2 * Frame.SQUARE && y < e.getY() + e.getHeight()) {
+					} else if(y >= e.getY() + 2 * Frame.SQUARE && y < e.getY() + e.getHeight()) { //checks for third position
 						y = e.getY() + 2 * Frame.SQUARE; //set the player's y value
-					} else {
+					} else { //default is second position
 						y = e.getY() + Frame.SQUARE; //set the player's y value
 					}
 					
 				} else { //the player is already on the log
+					//checks if the player is on one of the squares of the log
+					if(y != e.getY() || y != e.getY() + Frame.SQUARE || y != e.getY() + 2 * Frame.SQUARE) {
+						if(y >= e.getY() && y < e.getY() + Frame.SQUARE) { //checks if it is on first square
+							y = e.getY();
+						} else if(y >= e.getY() + 2 * Frame.SQUARE && y < e.getY() + e.getHeight()) { //check it is on the third square
+							y = e.getY() + 2 * Frame.SQUARE; 
+						} else { //default position is second square
+							y = e.getY() + Frame.SQUARE;
+						}
+					}
+					
 					if(((Log) e).getDirection() == Tools.UP) { //move the player according to the direction of where the log is moving to
 						y -= ((Log) e).getSpeed(); //move the player up
 					} else {

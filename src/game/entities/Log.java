@@ -24,7 +24,7 @@ public class Log extends Entity {
 		}
 		
 		direction = (y == Frame.HEIGHT) ? Tools.UP : Tools.DOWN; //set the direction based on where the log is generated
-		speed = 2;
+		speed = 1;
 	}
 
 	//method to move the log
