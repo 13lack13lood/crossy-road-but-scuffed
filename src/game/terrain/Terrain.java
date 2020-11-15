@@ -20,7 +20,7 @@ public class Terrain extends Rectangle {
 	protected ArrayList<Entity> objects; //child classes can access the ArrayList
 	private Color color;
 	private int width, height;
-	private int pos;
+	private int pos; //position of the terrain
 
 	public Terrain(Color color, int pos) {
 		this.color = color;
